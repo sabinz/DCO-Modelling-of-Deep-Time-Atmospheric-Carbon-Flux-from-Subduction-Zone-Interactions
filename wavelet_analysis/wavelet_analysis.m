@@ -1,13 +1,13 @@
 % Title: CWT, XWT and WTC Analysis of proxy-CO2 data and subduction zone
 % lengh data
 % Author: Jodie Pall
-% Last Edit: 28/05/2017
+% Last Edit: 22/06/2018
 
 % % Load SZ Data
-load global_sz_length_carbonate_data_v3.dat
-load global_sz_length_data_v3.dat
-acc = global_sz_length_carbonate_data_v3(:,2);
-sz = global_sz_length_data_v3(:,2);
+load global_sz_length_carbonate_data.dat
+load global_sz_length_data.dat
+acc = global_sz_length_carbonate_data(:,2);
+sz = global_sz_length_data(:,2);
 non_acc_raw = sz-acc;
 
 % % Load CO2 data
