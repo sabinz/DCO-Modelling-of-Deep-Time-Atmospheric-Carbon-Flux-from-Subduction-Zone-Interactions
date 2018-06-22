@@ -60,11 +60,11 @@ model_features="DCO_Subduction_Analysis/Global_EarthByte_Mesozoic-Cenozoic_plate
 DCO_Subduction_Analysis/Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml DCO_Subduction_Analysis/Topology\
 BuildingBlocks_AREPS.gpml"  #Matthews et al. (in prep)
 
-carbonate="DCO_Subduction_Analysis/DCO_Active_Carbonate_Platform.gpml"
+carbonate="DCO_Subduction_Analysis/DCO_Accumulated_Carbonate_Platforms.gpml"
 
 continents="DCO_Subduction_Analysis/Matthews_etal_GPC_inrev_ContinentalPolygons.gpml"
 
-fromage=400
+fromage=410
 
 toage=0
 
