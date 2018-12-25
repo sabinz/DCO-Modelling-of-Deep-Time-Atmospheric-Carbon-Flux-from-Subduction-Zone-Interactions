@@ -2,16 +2,16 @@
 # FILENAME: DCO_subductionzone_analysis.sh
 # DESCRIPTION: Produces global temporal results depicting total subduction zone lengths,
 #              total subuduction zone length intersecting with carbonate platforms,
-#              total continental arc subduction zones and percentage of total continental
-#              arc subduction to oceanic subduction zones.
-# AUTHORS: Sebastiano Doss, Jodie Pall
+#              total continental (Andean-style) subduction zones and percentage of total continental
+#              (Andean-style) subduction to oceanic subduction zones.
+# AUTHORS: Sebastiano Doss, Jodie Pall, Sabin Zahirovic
 # START DATE: 29th of February 2016
-# LAST EDIT: 14th of September 2016
+# LAST EDIT: 25th of December 2018
 
 # Instructions
 
-# In order to run these workflows, GMT 5.2.1, Python 2.7 along with the python
-# module pyGPlates (2016, rev. 12) must be installed on your system.In terminal
+# In order to run these workflows, GMT 5.2.1 or newer, Python 2.7 along with the python
+# module pyGPlates (rev. 12 or newer) must be installed on your system. In terminal
 # the curent directory should be changed to the folder where the
 # DCO_subductionzone_analysis.sh is located.
 # To run the analysis, the workflow folder must include:
@@ -31,11 +31,11 @@
 #		  (if a single value is provided, it will assume a time window
 #		  from the specified time to 0 Ma)
 #   -c    files depicting carbonate platform activity or accumalation (gpml or shp)
-#   -a    files depciting cotinental ocean boundaries (gpml or shp)
+#   -a    files depicting cotinental outlines  (gpml or shp)
 
 # If there are multiple feature files or rotation files following the argument
 # flag, separate the files with a space and enclose them with a double quotes
-# I.e. -r “r1.rot r2.rot r3.rot”
+# i.e. -r “r1.rot r2.rot r3.rot”
 
 # The analysis will produce a folder named Results containing four dat files:
 # global_continent_arc_percentage_data, global_sz_length_carbonate_data,
@@ -46,12 +46,11 @@
 ###################### !IMPORTANT! READ ME ######################
 
 # The global variable 'gmt_developement_directory' below must be adjusted, before you commence this analysis.
-# The varible must include the bin path of the latest gmt development build. If this is not adjusted appropriately
-# the analysis on carboante platforms and continenal arc vs oceanic arc will produce incorrect results. Instructions
+# The variable must include the bin path of the latest gmt development build. If this is not adjusted appropriately
+# the analysis on carbonate platforms and continental arc vs oceanic arc will produce incorrect results. Instructions
 # in creating a developement build of gmt5 can be found here: http://gmt.soest.hawaii.edu/projects/gmt/wiki/BuildingGMT
-# The reason for using the development build is because a bug was found in the tool grdtrack. The fix is implamented in
-# the developement build, however on a whole it is unstable to use. Only the fixed tool grdtrack is called from the
-# development build
+# The reason for using the development build is because a bug was found in the main branch of GMT5 for grdtrack. 
+
 
 # For more information on this project's methodologies, refer to the blog on the EarthByte Website:
 # http://www.earthbyte.org/category/dco-project/dco-blog/
@@ -61,7 +60,7 @@ directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # For gmt_developement_directory make sure a '/' character proceedes the directory path
 # I.e. /Users/sam/Documents/GMT_Dev/gmt5-dev/bin/
-gmt_developement_directory="<Set GMT Developement Directory>"
+gmt_developement_directory="/Users/sabinz/Documents/GMT_Dev/gmt-dev/bin/"
 
 # Main function called to initialise script
 main(){
@@ -75,6 +74,8 @@ local raw_time=""
 local to_age=0
 local from_age=0
 local outfilename_prefix="Subduction_Zones_Analysis_" # Default name unless specified by user
+
+debug=no
 
 # Parse Input Arguments
 while getopts "r:t:m:n:c:a:" opt; do
@@ -364,7 +365,12 @@ done
 local sz_total_length_km=$( awk '{ sum+=$2 } END { print int(sum) }' $sz_total_length )
 echo >&2 "Total subduction zone length is $sz_total_length_km km"
 
+if [[ $debug == "yes" ]]
+then
+echo "Skipping deletion of temp files for debug. Ensure to run on SINGLE timestep."
+else
 rm gmtconvert_segment_*.txt $sz_total_length sz_length.test
+fi
 
 # return value
 echo $sz_total_length_km
@@ -416,7 +422,14 @@ END { print intersect_count }' feature_R_halfxprofiles.gmt)
 local sz_length_intersect_feature=$(($prof_spacing * ($feature_total_L_intersect + $feature_total_R_intersect)))
 
 # Clean out legacy files
+
+if [[ $debug == "yes" ]]
+then
+echo "Skipping deletion of temp files for debug. Ensure to run on SINGLE timestep."
+else
 rm feature_*.gmt $feature_mask_grid
+fi
+
 
 # Return value
 echo $sz_length_intersect_feature
@@ -432,8 +445,8 @@ local carbonate=$3
 local outfilename_prefix=$4
 
 # Define sampling distance, intervals and lengths of cross-profiles.
-local prof_spacing="10" # Cross profile are created at 10km spacing from each other
-local prof_interval="5.5875" # 5.5875 km spacing interval along the cross profile, with a 447km whisker length,
+local prof_spacing="10" # Cross profile are created at 10 km spacing from each other
+local prof_interval="5.5875" # 5.5875 km spacing interval along the cross profile, with a 447 km whisker length,
 #there are a total of 10 units along the cross profile (447/5.5875=80)
 local prof_length="894k" # Will search 447 km from the subduction zone for a carbonate platform feature. (894/2=447)
 
@@ -441,27 +454,37 @@ local prof_length="894k" # Will search 447 km from the subduction zone for a car
 local szLlayer=${outfilename_prefix}subduction_boundaries_sL_${age}.00Ma.gmt
 local szRlayer=${outfilename_prefix}subduction_boundaries_sR_${age}.00Ma.gmt
 
-local carboante_mask_grid="reconstructed_carbonate_mask.nc"
+local carbonate_mask_grid="reconstructed_carbonate_mask.nc"
 
 # Reconstruct carboante platform polygons with given age and plate kinetmatic model
 python ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${carbonate} -t ${age} -e gmt -- carbonate
 
 # Convert reconstructed feature from vector (gmt) into a mask grid (netCDF) format
-gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -Rd-180/180/-90/90 -I10k -N0/1/1  -G${carboante_mask_grid} -V
+# gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I10k -N0/1/1 -G${carbonate_mask_grid} -V
+# Try arc units to ensure geographic grid 
+gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I1s -N0/1/1 -G${carbonate_mask_grid} -V
+# low res for testing, 1 degree
+# gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I1d -N0/1/1 -G${carbonate_mask_grid} -V
+
 
 # Call function to calculate length of subduction zones that intersect with given feature. Receives feature mask grid and sz geometry
-local sz_carbonate=$(find_sz_length_containing_feature $carboante_mask_grid $szLlayer $szRlayer $prof_spacing $prof_interval $prof_length)
+local sz_carbonate=$(find_sz_length_containing_feature $carbonate_mask_grid $szLlayer $szRlayer $prof_spacing $prof_interval $prof_length)
 echo >&2 "Total subduction zones with neighbouring carbonate platforms $sz_carbonate km"
 
-# clean legacy files
+# clean temp files
+if [[ $debug == "yes" ]]
+then
+echo "Skipping deletion of temp files for debug. Ensure to run on SINGLE timestep."
+else
 rm reconstructed_carbonate_${age}.0Ma.gmt
+fi
 
 #return value
 echo $sz_carbonate
 
 }
 
-# Function used to calculate total global Island Arc subduction zone lengths at a given timestep
+# Function used to calculate global subduction zone lengths at a given timestep
 calculate_sz_length_continentArc(){
 
 local rotfile=$1
@@ -492,17 +515,22 @@ python ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${continenta
 gmt spatial reconstructed_COB_${age}.0Ma.xy -F > $closed_continental_polygons
 
 # Convert reconstructed feature from vector (gmt) to mask grid (netCDF) format
-gmt grdmask continental_polygons_closed.gmt -Rd-180/180/-90/90 -I50k -N0/1/1 -G${continent_mask_grid} -V
+gmt grdmask continental_polygons_closed.gmt -Rd -I50k -N0/1/1 -G${continent_mask_grid} -V
 
-# Call function to calculate length of subduction zones that intersect with given feature. Receives feature mask grid and sz geometry
+# Call function to calculate length of subduction zones that intersect with given feature. Receives feature mask grid and SZ geometry
 local sz_length_con_arc=$(find_sz_length_containing_feature $continent_mask_grid $szLlayer $szRlayer $prof_spacing $prof_interval $prof_length)
 echo >&2 "Total length of continental arcs:  $sz_length_con_arc km"
 
-# Clean legacy files
-rm reconstructed_COB_${age}.0Ma.xy $closed_continental_polygons
+	# Clean legacy files
+	if [[ $debug == "yes" ]]
+	then
+	echo "Skipping deletion of temp files for debug. Ensure to run on SINGLE timestep."
+	else
+	rm reconstructed_COB_${age}.0Ma.xy ${closed_continental_polygons}
+	fi
 
 # Return value
-echo $sz_length_con_arc
+echo ${sz_length_con_arc}
 
 }
 
@@ -512,7 +540,7 @@ local sz_length_con_arc=$1
 local sz_total_length_km=$2
 
 local con_arc_percent=$( echo "(${sz_length_con_arc}/${sz_total_length_km})*100" | bc -l )
-echo >&2 "Percentage of subduction zones that produce continental arcs = $con_arc_percent"
+echo >&2 "Percentage of global subduction zones that produce continental arcs = $con_arc_percent"
 echo $con_arc_percent
 
 }
