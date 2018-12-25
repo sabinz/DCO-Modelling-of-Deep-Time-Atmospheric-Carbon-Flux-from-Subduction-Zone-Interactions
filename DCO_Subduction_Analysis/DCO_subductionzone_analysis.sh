@@ -62,6 +62,9 @@ directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # I.e. /Users/sam/Documents/GMT_Dev/gmt5-dev/bin/
 gmt_developement_directory="/Users/sabinz/Documents/GMT_Dev/gmt-dev/bin/"
 
+rm -rf PlateBoundaryFeatures
+rm -rf Results
+
 # Main function called to initialise script
 main(){
 
@@ -74,8 +77,6 @@ local raw_time=""
 local to_age=0
 local from_age=0
 local outfilename_prefix="Subduction_Zones_Analysis_" # Default name unless specified by user
-
-debug=no
 
 # Parse Input Arguments
 while getopts "r:t:m:n:c:a:" opt; do
@@ -297,16 +298,12 @@ then
 mkdir "Results"
 fi
 
-if [ ! -d "PlateBoundaryFeatures" ]
-then
-mkdir "PlateBoundaryFeatures"
-fi
-
 # Iterate through each 1 myr timestep, conducting subduction zone analyses
 while (( $age <= from_age ))
 do
 
 echo >&2 "Time Step: $age"
+mkdir -p PlateBoundaryFeatures/${age}
 
 # Use pygplates to export resolved topologies and remove duplicate segments
 python ${directory}/scripts/resolve_topologies_V.2.py -r ${rotfile} -m $topologies -t ${age} -e ${outfile_format} \
@@ -324,10 +321,9 @@ sz_length_con_arc=$(calculate_sz_length_continentArc "$rotfile" "$age" "$contine
 # Calculate proportion of global subduction zones that are continental arcs opposed to intra-oceanic arcs
 con_arc_percent=$(calculate_sz_percentage_continentArc $sz_length_con_arc $sz_total_length_km)
 
-
 # Migrate all resolved feature files at each timestep to a new age-stamped folder
-mkdir -p PlateBoundaryFeatures/$age
-mv *.gmt *.xml PlateBoundaryFeatures/$age
+mv *.gmt *.xml PlateBoundaryFeatures/${age}
+
 
 # Append age and corresponding values calculated by the analysis functions to results files
 echo $age $sz_total_length_km >> $global_sz_length
@@ -365,12 +361,7 @@ done
 local sz_total_length_km=$( awk '{ sum+=$2 } END { print int(sum) }' $sz_total_length )
 echo >&2 "Total subduction zone length is $sz_total_length_km km"
 
-if [[ $debug == "yes" ]]
-then
-echo "Skipping deletion of temp files for debug. Ensure to run on SINGLE timestep."
-else
 rm gmtconvert_segment_*.txt $sz_total_length sz_length.test
-fi
 
 # return value
 echo $sz_total_length_km
@@ -392,14 +383,16 @@ local prof_length=$6
 # !Disclaimer! A bug has been found for grdtrack and has been fixed within an unstable development build.
 # Here, grdtrack is called from a developement build
 ${gmt_developement_directory}gmt grdtrack $szLlayer -G${feature_mask_grid}  -nn+c \
--C${prof_length}/${prof_interval}/${prof_spacing} > feature_L_xprofiles.gmt -V
+-C${prof_length}/${prof_interval}/${prof_spacing} > ${feature_mask_grid}_feature_L_xprofiles.gmt -V
 
 ${gmt_developement_directory}gmt grdtrack $szRlayer -G${feature_mask_grid}   -nn+c \
--C${prof_length}/${prof_interval}/${prof_spacing} > feature_R_xprofiles.gmt -V
+-C${prof_length}/${prof_interval}/${prof_spacing} > ${feature_mask_grid}_feature_R_xprofiles.gmt -V
 
 # Create one-sided cross-profile 'whiskers' in the direction of the down-going slab
-awk '{ if ( $1 == ">") print $0 ; else if ($3 <= 0) print $0 }' feature_L_xprofiles.gmt > feature_L_halfxprofiles.gmt
-awk '{ if ( $1 == ">") print $0 ; else if ($3 >= 0) print $0 }' feature_R_xprofiles.gmt > feature_R_halfxprofiles.gmt
+awk '{ if ( $1 == ">") print $0 ; else if ($3 <= 0) print $0 }' ${feature_mask_grid}_feature_L_xprofiles.gmt > ${feature_mask_grid}_feature_L_halfxprofiles.gmt
+awk '{ if ( $1 == ">") print $0 ; else if ($3 >= 0) print $0 }' ${feature_mask_grid}_feature_R_xprofiles.gmt > ${feature_mask_grid}_feature_R_halfxprofiles.gmt
+
+cp *profiles.gmt PlateBoundaryFeatures/${age}/
 
 # Identify and count cross-profiles that intersect with feature
 local feature_total_L_intersect=$(awk \
@@ -408,7 +401,7 @@ local feature_total_L_intersect=$(awk \
 {checkprofile = 1;prevlatlong=$7;} \
 if (( checkprofile==1 ) && ( $5==1 )) \
 {intersect_count++; checkprofile=0;}} \
-END { print intersect_count }' feature_L_halfxprofiles.gmt)
+END { print intersect_count }' ${feature_mask_grid}_feature_L_halfxprofiles.gmt)
 
 local feature_total_R_intersect=$(awk \
 'BEGIN {intersect_count=0;checkprofile=1;prevlatlong=0;} \
@@ -416,19 +409,15 @@ local feature_total_R_intersect=$(awk \
 {checkprofile = 1;prevlatlong=$7;} \
 if (( checkprofile==1 ) && ( $5==1 )) \
 {intersect_count++; checkprofile=0;}} \
-END { print intersect_count }' feature_R_halfxprofiles.gmt)
+END { print intersect_count }' ${feature_mask_grid}_feature_R_halfxprofiles.gmt)
 
 # Calculate length of subduction zones that intersect with feature
 local sz_length_intersect_feature=$(($prof_spacing * ($feature_total_L_intersect + $feature_total_R_intersect)))
 
 # Clean out legacy files
 
-if [[ $debug == "yes" ]]
-then
-echo "Skipping deletion of temp files for debug. Ensure to run on SINGLE timestep."
-else
 rm feature_*.gmt $feature_mask_grid
-fi
+
 
 
 # Return value
@@ -454,30 +443,29 @@ local prof_length="894k" # Will search 447 km from the subduction zone for a car
 local szLlayer=${outfilename_prefix}subduction_boundaries_sL_${age}.00Ma.gmt
 local szRlayer=${outfilename_prefix}subduction_boundaries_sR_${age}.00Ma.gmt
 
-local carbonate_mask_grid="reconstructed_carbonate_mask.nc"
+local carbonate_mask_grid="reconstructed_carbonate_mask_${age}.nc"
 
 # Reconstruct carboante platform polygons with given age and plate kinetmatic model
 python ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${carbonate} -t ${age} -e gmt -- carbonate
 
+cp reconstructed_carbonate_${age}.0Ma.gmt PlateBoundaryFeatures/${age}/reconstructed_carbonate_${age}.0Ma.gmt
+
 # Convert reconstructed feature from vector (gmt) into a mask grid (netCDF) format
-# gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I10k -N0/1/1 -G${carbonate_mask_grid} -V
+gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I10k -N0/1/1 -G${carbonate_mask_grid} -V
 # Try arc units to ensure geographic grid 
-gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I1s -N0/1/1 -G${carbonate_mask_grid} -V
+# gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I1s -N0/1/1 -G${carbonate_mask_grid} -V
 # low res for testing, 1 degree
 # gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I1d -N0/1/1 -G${carbonate_mask_grid} -V
 
+cp ${carbonate_mask_grid} PlateBoundaryFeatures/reconstructed_carbonate_mask_${age}.nc
 
 # Call function to calculate length of subduction zones that intersect with given feature. Receives feature mask grid and sz geometry
 local sz_carbonate=$(find_sz_length_containing_feature $carbonate_mask_grid $szLlayer $szRlayer $prof_spacing $prof_interval $prof_length)
 echo >&2 "Total subduction zones with neighbouring carbonate platforms $sz_carbonate km"
 
 # clean temp files
-if [[ $debug == "yes" ]]
-then
-echo "Skipping deletion of temp files for debug. Ensure to run on SINGLE timestep."
-else
 rm reconstructed_carbonate_${age}.0Ma.gmt
-fi
+
 
 #return value
 echo $sz_carbonate
@@ -499,10 +487,10 @@ local prof_interval="11.175" # 11.175 km spacing interval along the cross profil
 local prof_length="894k" # Will search 447 km from the subduction zone for cotinent feature. (894/2=447)
 
 # Close continental polygons
-local closed_continental_polygons="continental_polygons_closed.gmt"
+local closed_continental_polygons="continental_polygons_closed_${age}.gmt"
 
-# Close cotinent featurtes masked grid (netCDF) format
-local continent_mask_grid="reconstructed_continent_raster.nc"
+# Close continent featurtes masked grid (netCDF) format
+local continent_mask_grid="reconstructed_continent_raster_${age}.nc"
 
 # Subduction boundaries have either a left- or right-polarity depending on the original direction of digitisation.
 local szLlayer=${outfilename_prefix}subduction_boundaries_sL_${age}.00Ma.gmt
@@ -512,22 +500,20 @@ local szRlayer=${outfilename_prefix}subduction_boundaries_sR_${age}.00Ma.gmt
 python ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${continental_polygons} -t ${age} -e xy -- COB
 
 # Force closure of polylines to create closed continental polygons
-gmt spatial reconstructed_COB_${age}.0Ma.xy -F > $closed_continental_polygons
+gmt spatial reconstructed_COB_${age}.0Ma.xy -F > ${closed_continental_polygons}
 
 # Convert reconstructed feature from vector (gmt) to mask grid (netCDF) format
-gmt grdmask continental_polygons_closed.gmt -Rd -I50k -N0/1/1 -G${continent_mask_grid} -V
+gmt grdmask ${closed_continental_polygons} -Rd -I50k -fg -N0/1/1 -G${continent_mask_grid} -V
+
+cp ${closed_continental_polygons} PlateBoundaryFeatures/${age}/continental_polygons_closed_${age}.gmt
+cp ${continent_mask_grid} PlateBoundaryFeatures/reconstructed_continent_raster_${age}.nc
 
 # Call function to calculate length of subduction zones that intersect with given feature. Receives feature mask grid and SZ geometry
 local sz_length_con_arc=$(find_sz_length_containing_feature $continent_mask_grid $szLlayer $szRlayer $prof_spacing $prof_interval $prof_length)
 echo >&2 "Total length of continental arcs:  $sz_length_con_arc km"
 
-	# Clean legacy files
-	if [[ $debug == "yes" ]]
-	then
-	echo "Skipping deletion of temp files for debug. Ensure to run on SINGLE timestep."
-	else
-	rm reconstructed_COB_${age}.0Ma.xy ${closed_continental_polygons}
-	fi
+# Clean legacy files
+rm reconstructed_COB_${age}.0Ma.xy ${closed_continental_polygons}
 
 # Return value
 echo ${sz_length_con_arc}
