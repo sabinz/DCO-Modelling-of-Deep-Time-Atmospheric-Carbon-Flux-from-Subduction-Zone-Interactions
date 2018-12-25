@@ -253,7 +253,7 @@ def resolve_topologies(rotation_model, topological_features, reconstruction_time
     # FIXME: Temporary fix to avoid getting OGR GMT/Shapefile error "Mismatch in field names..." and
     # missing geometries when saving resolved topologies/sections to GMT/Shapefile.
     # It's caused by the OGR writer inside pyglates trying to write out features with different
-    # shapefiles attribute field (key) names to the same file. We get around this by removing
+    # shapefile attribute field (key) names to the same file. We get around this by removing
     # all shapefile attributes.
     topological_features = pygplates.FeaturesFunctionArgument(topological_features).get_features()
     for topological_feature in topological_features:
@@ -337,6 +337,9 @@ def resolve_topologies(rotation_model, topological_features, reconstruction_time
             # Anomalous segments are filtered from resolved feature collection
             ridge_transform_boundary_section_feature_collection = filter_anomalous(anomalous_feature_collection,\
                 ridge_transform_boundary_section_feature_collection)
+            anomalous_ridges_transforms_filename='{0}anomalous_ridge_transform_boundaries_{1:0.2f}Ma.{2}'.format(
+                output_filename_prefix, reconstruction_time, output_filename_extension)
+            anomalous_feature_collection.write(anomalous_ridges_transforms_filename)
 
 
         ridge_transform_boundary_section_features_filename = '{0}ridge_transform_boundaries_{1:0.2f}Ma.{2}'.format(
@@ -347,7 +350,7 @@ def resolve_topologies(rotation_model, topological_features, reconstruction_time
         # Put the features in a feature collection so we can write them to a file.
         subduction_boundary_section_feature_collection = pygplates.FeatureCollection(subduction_boundary_section_features)
         
-        # In the case that there are anomalous features present, anomalous segments are added to a feature collection and 
+        # In the case that there are anomalous (duplicated) features present, anomalous segments are added to a feature collection and 
         # written to a file
         if anomalous_sz:
             # Write a file containing all of the anomalous subduction zones
@@ -355,6 +358,9 @@ def resolve_topologies(rotation_model, topological_features, reconstruction_time
             # Anomalous segments are filtered from resolved feature collection
             subduction_boundary_section_feature_collection = filter_anomalous(anomalous_feature_collection,\
                 subduction_boundary_section_feature_collection)
+            anomalous_subduction_boundaries_filename='{0}anomalous_subduction_boundaries_{1:0.2f}Ma.{2}'.format(
+                output_filename_prefix, reconstruction_time, output_filename_extension)
+            anomalous_feature_collection.write(anomalous_subduction_boundaries_filename)
 
         subduction_boundary_section_features_filename = '{0}subduction_boundaries_{1:0.2f}Ma.{2}'.format(
                 output_filename_prefix, reconstruction_time, output_filename_extension)
@@ -369,6 +375,10 @@ def resolve_topologies(rotation_model, topological_features, reconstruction_time
             # Anomalous segments are filtered from resolved feature collection
             left_subduction_boundary_section_feature_collection = filter_anomalous(anomalous_feature_collection,\
                 left_subduction_boundary_section_feature_collection)
+            anomalous_left_subduction_filename = '{0}anomalous_subduction_boundaries_sL_{1:0.2f}Ma.{2}'.format(
+                output_filename_prefix, reconstruction_time, output_filename_extension)
+            anomalous_feature_collection.write(anomalous_left_subduction_filename)
+
         
         left_subduction_boundary_section_features_filename = '{0}subduction_boundaries_sL_{1:0.2f}Ma.{2}'.format(
                 output_filename_prefix, reconstruction_time, output_filename_extension)
@@ -383,6 +393,9 @@ def resolve_topologies(rotation_model, topological_features, reconstruction_time
             # Anomalous segments are filtered from resolved feature collection
             right_subduction_boundary_section_feature_collection = filter_anomalous(anomalous_feature_collection,\
                 right_subduction_boundary_section_feature_collection)
+            anomalous_right_subduction_filename = '{0}anomalous_subduction_boundaries_sR_{1:0.2f}Ma.{2}'.format(
+                output_filename_prefix, reconstruction_time, output_filename_extension)
+            anomalous_feature_collection.write(anomalous_right_subduction_filename)
         
         right_subduction_boundary_section_features_filename = '{0}subduction_boundaries_sR_{1:0.2f}Ma.{2}'.format(
                 output_filename_prefix, reconstruction_time, output_filename_extension)
