@@ -397,28 +397,25 @@ cp *profiles.gmt PlateBoundaryFeatures/${age}/
 # Identify and count cross-profiles that intersect with feature
 local feature_total_L_intersect=$(awk \
 'BEGIN {intersect_count=0;checkprofile=1;prevlatlong=0;} \
-{if (($1 == ">") && (prevlatlong!=$7)) \
-{checkprofile = 1;prevlatlong=$7;} \
-if (( checkprofile==1 ) && ( $5==1 )) \
+{if (($1 == ">") && (prevlatlong != $7)) \
+{checkprofile = 1; prevlatlong = $7;} \
+if (( checkprofile == 1 ) && ( $5 == 1 )) \
 {intersect_count++; checkprofile=0;}} \
 END { print intersect_count }' ${feature_mask_grid}_feature_L_halfxprofiles.gmt)
 
 local feature_total_R_intersect=$(awk \
 'BEGIN {intersect_count=0;checkprofile=1;prevlatlong=0;} \
-{if (($1 == ">") && (prevlatlong!=$7)) \
-{checkprofile = 1;prevlatlong=$7;} \
-if (( checkprofile==1 ) && ( $5==1 )) \
+{if (($1 == ">") && (prevlatlong != $7)) \
+{checkprofile = 1; prevlatlong = $7;} \
+if (( checkprofile == 1 ) && ( $5 == 1 )) \
 {intersect_count++; checkprofile=0;}} \
 END { print intersect_count }' ${feature_mask_grid}_feature_R_halfxprofiles.gmt)
 
 # Calculate length of subduction zones that intersect with feature
-local sz_length_intersect_feature=$(($prof_spacing * ($feature_total_L_intersect + $feature_total_R_intersect)))
+local sz_length_intersect_feature=$( echo "$prof_spacing * ( $feature_total_R_intersect + $feature_total_L_intersect )" | bc )
 
 # Clean out legacy files
-
 rm feature_*.gmt $feature_mask_grid
-
-
 
 # Return value
 echo $sz_length_intersect_feature
