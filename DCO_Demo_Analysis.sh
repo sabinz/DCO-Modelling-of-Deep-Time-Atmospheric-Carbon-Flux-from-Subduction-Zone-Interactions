@@ -3,36 +3,34 @@
 # FILE NAME: DCO_Demo_Analysis.sh
 # DESCRIPTION: Establishes all arguments and executes DCO Subduction Zone Analysis and DCO Crust Analysis
 #
-# AUTHORS: Sebastiano Doss, Jodie Pall
+# AUTHORS: Sebastiano Doss, Jodie Pall, Sabin Zahirovic
 # START DATE: 30th of June 2016
-# LAST EDIT: 14th of September 2016
+# LAST EDIT: 27th of March 2020
 
 ################################### Read Me ###################################
 
 # If there are multiple feature files or rotation files preceding the argument
 # flag, separate the files with a space and enclose them with a double quotes
-# I.e.( -r “r1.rot r2.rot r3.rot”) Without the double quotes the parser will
+# i.e.( -r “r1.rot r2.rot r3.rot”) Without the double quotes the parser will
 # not recognize the second varible.
 
-# DCO_subductionzone_analysis.sh must have its global variable 'gmt_developement_directory' adjusted, before you
-# commence this analysis. The varible must include the bin path of the latest gmt development build. If this is not
-# adjusted appropriately the analysis on carboante platforms and continenal arc vs oceanic arc will produce incorrect
-# results. Instructions in creating a developement build of gmt5 can be found
-# here: http://gmt.soest.hawaii.edu/projects/gmt/wiki/BuildingGMT The reason for using the development build is
-# because a bug was found in the tool grdtrack. The fix is implamented in the developement build, however on a whole
-# it is unstable to use. Only the fixed tool grdtrack is called from the development build. For futher instructions,
-# refer to the blog post on the EarthByte Website: http://www.earthbyte.org/setting-up-environment-for-dco-demo-analysis/
-
-# The Matthews plate model has been included in the DCO_Subduction_Analysis folder, the DCO_subductionzone_analysis.sh script
+# The Matthews et al. (2016) plate reconstructions have been included in the DCO_Subduction_Analysis folder, the DCO_subductionzone_analysis.sh script
 # below recieves the Matthews Model. A different continents file was used for the original analysis however the file is not
 # clean enough for release. The continents file provided, will likely produce different results. It has been inlcuded for
 # the purposes of demonstration.
 
-# The Müller et al. (2016) plate model has been included within the DCO_OceanicCrust_Analysis folder, the
-# DCO_crust_analysis.sh script below recives the Müller et al. (2016) plate model. The age grids can be found on the
+# The Müller et al. (2016) plate reconstructions have been included within the DCO_OceanicCrust_Analysis folder, the
+# DCO_crust_analysis.sh script below receives the Müller et al. (2016) plate model. The age grids can be found on the
 # EarthByte website: ftp://ftp.earthbyte.org/Data_Collections/Muller_etal_2016_AREPS/ . Please be aware these grids
 # have some sections masked by continent-ocean boundary polygons. They may produce different results from the original
 # analysis, where unmasked grids were used.
+
+# IMPORTANT!
+# Both the Matthews et al. (2016) and Muller et al. (2016) models have been updated with a fix for the Pacific 
+# reference frame following Torsvik et al. (2019). The Pall et al. (2018) paper had used older variants of the models
+# before the fixes were made to Pacific plate motions. 
+# The Muller et al. (2016) AREPS model version used here is 1.17, which has significant updates to the ones 
+# used previously in this workflow. 
 
 
 #################################### References ###############################
@@ -62,7 +60,7 @@ BuildingBlocks_AREPS.gpml"  #Matthews et al. (in prep)
 
 carbonate="DCO_Subduction_Analysis/DCO_Accumulated_Carbonate_Platforms.gpml"
 
-continents="DCO_Subduction_Analysis/Matthews_etal_GPC_inrev_ContinentalPolygons.gpml"
+continents="DCO_Subduction_Analysis/Global_EarthByte_GeeK07_COB_Terranes_Matthews_etal.gpml"
 
 fromage=410
 

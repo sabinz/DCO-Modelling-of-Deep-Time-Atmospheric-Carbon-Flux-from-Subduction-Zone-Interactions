@@ -4,14 +4,14 @@
 # DESCRIPTION: Produces time-dependent grid files depicting CO2 levels in the
 #              upper crust as well as summary statistics of the subducting crust
 #              age and CO2 concentration in the upper crust.
-# AUTHORS: Sebastiano Doss, Jodie Pall
+# AUTHORS: Sebastiano Doss, Jodie Pall, Sabin Zahirovic
 # START DATE: 15th of May 2016
-# LAST EDIT: 14th of September 2016
+# LAST EDIT: 27th of March 2020
 
 # Instructions
 
-# In order to run these workflows, GMT 5.2.1, Python 2.7 along with the python
-# module pyGPlates (2016, rev. 12) must be installed on your system. In terminal
+# In order to run these workflows, GMT 6, Python 2.7 along with the python
+# module pyGPlates (rev. 12 or newer) must be installed on your system. In terminal
 # the curent directory should be changed to the folder where the DCO_crust_analysis.sh
 # is located. To run the analysis, the workflow folder must include:
 # the DCO_crust_analysis.sh script; the plate model (including all geometry (gpml) and

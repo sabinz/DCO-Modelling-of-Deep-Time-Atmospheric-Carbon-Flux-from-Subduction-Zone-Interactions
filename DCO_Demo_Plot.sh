@@ -1,18 +1,19 @@
 #!/bin/bash
 
 # FILENAME: DCO_Demo_Plot.sh
-# DESCRIPTION: Plots of DCO analysis results generated using the Matthews (in prep) plate model
+# DESCRIPTION: Plots of DCO analysis results generated using the Matthews et al. (2016) plate model
 # compared with CO2 proxy records from Park & Royer (2011), Royer (2011) and modelled 
 # palaeoatmospheric CO2 from Bergman et al. (2004) from 410 Ma to present day. 
 # Grids of sediment thickness and CO2-content of the upper oceanic crust generated 
-# from the AREPS (2016) age grid from 230 Ma to present day.
+# from the Muller et al. AREPS (2016) age grid from 230 Ma to present day.
 #              
 # AUTHORS: Sebastiano Doss, Jodie Pall
 # START DATE: 30 June 2016
-# LAST EDIT: 17 August 2016
+# LAST EDIT: 26 March 2020
 
-gmt set PAPER_MEDIA A2 COLOR_MODEL RGB MAP_FRAME_TYPE plain FONT_LABEL 18p,Helvetica,black FONT_ANNOT_PRIMARY \
-12p,Helvetica,black FONT_ANNOT_SECONDARY 8p,Helvetica,black
+# gmt set PAPER_MEDIA A2 COLOR_MODEL RGB MAP_FRAME_TYPE plain FONT_LABEL 18p,Helvetica,black FONT_ANNOT_PRIMARY 12p,Helvetica,black FONT_ANNOT_SECONDARY 8p,Helvetica,black
+
+gmt gmtset PS_COLOR_MODEL=RGB PS_MEDIA=A2 MAP_FRAME_TYPE=plain FORMAT_GEO_MAP=ddd:mm:ssF FONT_ANNOT_PRIMARY=14p MAP_FRAME_PEN=thin FONT_LABEL=18p,Helvetica,black PROJ_LENGTH_UNIT=cm
 
 
 if [ ! -d "Graphs" ]
@@ -166,10 +167,10 @@ mv $pngfile Graphs
 open "Graphs/$pngfile"
 
 
+# gmt set PAPER_MEDIA A2 COLOR_MODEL RGB MAP_FRAME_TYPE plain FONT_LABEL 18p,Helvetica,black FONT_ANNOT_PRIMARY 12p,Helvetica,black FONT_ANNOT_SECONDARY 8p,Helvetica,black 
 
+gmt gmtset PS_COLOR_MODEL=RGB PS_MEDIA=A2 MAP_FRAME_TYPE=plain FORMAT_GEO_MAP=ddd:mm:ssF FONT_ANNOT_PRIMARY=14p MAP_FRAME_PEN=thin FONT_LABEL=18p,Helvetica,black PROJ_LENGTH_UNIT=cm
 
-gmt set PAPER_MEDIA A2 COLOR_MODEL RGB MAP_FRAME_TYPE plain FONT_LABEL 18p,Helvetica,black FONT_ANNOT_PRIMARY \
-12p,Helvetica,black FONT_ANNOT_SECONDARY 8p,Helvetica,black 
 
 if [ "$1" == "Bergman" ] || [ "$1" == "bergman" ]  
 then

@@ -6,14 +6,17 @@
 #              (Andean-style) subduction to oceanic subduction zones.
 # AUTHORS: Sebastiano Doss, Jodie Pall, Sabin Zahirovic
 # START DATE: 29th of February 2016
-# LAST EDIT: 25th of December 2018
+# LAST EDIT: 27th of March 2020
 
 # Instructions
 
-# In order to run these workflows, GMT 5.2.1 or newer, Python 2.7 along with the python
+# In order to run these workflows, GMT 6 or newer, Python 2.7 along with the python
 # module pyGPlates (rev. 12 or newer) must be installed on your system. In terminal
 # the curent directory should be changed to the folder where the
 # DCO_subductionzone_analysis.sh is located.
+
+# Latest test performed using GMT 6.1, and pyGPlates rev. 18
+
 # To run the analysis, the workflow folder must include:
 # The DCO_subductionzone_analysis.sh script; the plate model (including all geometry (gpml)
 # and rotation (rot) files); feature collection (gpml or shp) depicting carbonate platform
@@ -37,19 +40,13 @@
 # flag, separate the files with a space and enclose them with a double quotes
 # i.e. -r “r1.rot r2.rot r3.rot”
 
+# e.g. ./DCO_subductionzone_analysis.sh -r "Global_EB_250-0Ma_GK07_Matthews_etal.rot Global_EB_410-250Ma_GK07_Matthews_etal.rot" -m "Global_EarthByte_Mesozoic-Cenozoic_plate_boundaries_Matthews_etal.gpml Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml" -t 410-0 -c DCO_Carbonate_Platform-v3.gpml -a Global_EarthByte_GeeK07_COB_Terranes_Matthews_etal.gpml
+
 # The analysis will produce a folder named Results containing four dat files:
 # global_continent_arc_percentage_data, global_sz_length_carbonate_data,
 # global_sz_length_continentarc_data and global_sz_length_data.
 # A folder called PlateBoundaryFeatures will be produced, containing resolved plate boundaries
 # (subduction, MOR and transform) at each time step.
-
-###################### !IMPORTANT! READ ME ######################
-
-# The global variable 'gmt_developement_directory' below must be adjusted, before you commence this analysis.
-# The variable must include the bin path of the latest gmt development build. If this is not adjusted appropriately
-# the analysis on carbonate platforms and continental arc vs oceanic arc will produce incorrect results. Instructions
-# in creating a developement build of gmt5 can be found here: http://gmt.soest.hawaii.edu/projects/gmt/wiki/BuildingGMT
-# The reason for using the development build is because a bug was found in the main branch of GMT5 for grdtrack. 
 
 
 # For more information on this project's methodologies, refer to the blog on the EarthByte Website:
@@ -57,10 +54,6 @@
 
 ####################### Global Variables #######################
 directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# For gmt_developement_directory make sure a '/' character proceedes the directory path
-# I.e. /Users/sam/Documents/GMT_Dev/gmt5-dev/bin/
-gmt_developement_directory="/Users/sabinz/Documents/GMT_Dev/gmt-dev/bin/"
 
 rm -rf PlateBoundaryFeatures
 rm -rf Results
@@ -380,12 +373,11 @@ local prof_spacing=$4
 local prof_interval=$5
 local prof_length=$6
 
-# !Disclaimer! A bug has been found for grdtrack and has been fixed within an unstable development build.
-# Here, grdtrack is called from a developement build
-${gmt_developement_directory}gmt grdtrack $szLlayer -G${feature_mask_grid}  -nn+c \
+
+gmt grdtrack $szLlayer -G${feature_mask_grid}  -nn+c \
 -C${prof_length}/${prof_interval}/${prof_spacing} > ${feature_mask_grid}_feature_L_xprofiles.gmt -V
 
-${gmt_developement_directory}gmt grdtrack $szRlayer -G${feature_mask_grid}   -nn+c \
+gmt grdtrack $szRlayer -G${feature_mask_grid}   -nn+c \
 -C${prof_length}/${prof_interval}/${prof_spacing} > ${feature_mask_grid}_feature_R_xprofiles.gmt -V
 
 # Create one-sided cross-profile 'whiskers' in the direction of the down-going slab
