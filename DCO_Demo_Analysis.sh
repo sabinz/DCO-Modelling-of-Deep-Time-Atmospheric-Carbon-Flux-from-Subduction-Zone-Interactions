@@ -52,10 +52,10 @@ chmod u+x **/*.sh
 
 # Make sure all arguments are enclosed in double quotes
 rotfiles="DCO_Subduction_Analysis/Global_EB_250-0Ma_GK07_Matthews_etal.rot \
-DCO_Subduction_Analysis/Global_EB_410-250Ma_GK07_Matthews_etal.rot"  #Matthews et al. (in prep)
+DCO_Subduction_Analysis/Global_EB_410-250Ma_GK07_Matthews_etal.rot"  #Matthews et al. (2016)
 
 model_features="DCO_Subduction_Analysis/Global_EarthByte_Mesozoic-Cenozoic_plate_boundaries_Matthews_etal.gpml \
-DCO_Subduction_Analysis/Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml DCO_Subduction_Analysis/Topology"  #Matthews et al. (in prep)
+DCO_Subduction_Analysis/Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml DCO_Subduction_Analysis/Topology"  #Matthews et al. (2016)
 
 # Accumulating carbonate platform interactions
 carbonate="DCO_Subduction_Analysis/DCO_Accumulated_Carbonate_Platform-v3.gpml"
