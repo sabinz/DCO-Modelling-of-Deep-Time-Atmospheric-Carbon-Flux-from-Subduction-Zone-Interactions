@@ -33,14 +33,21 @@
 #   -t    time window from oldest time to youngest (i.e. 330-300)
 #		  (if a single value is provided, it will assume a time window
 #		  from the specified time to 0 Ma)
-#   -c    files depicting carbonate platform activity or accumalation (gpml or shp)
+#   -c    files depicting carbonate platform activity or accumulation (gpml or shp)
 #   -a    files depicting cotinental outlines  (gpml or shp)
 
 # If there are multiple feature files or rotation files following the argument
 # flag, separate the files with a space and enclose them with a double quotes
 # i.e. -r “r1.rot r2.rot r3.rot”
 
-# e.g. ./DCO_subductionzone_analysis.sh -r "Global_EB_250-0Ma_GK07_Matthews_etal.rot Global_EB_410-250Ma_GK07_Matthews_etal.rot" -m "Global_EarthByte_Mesozoic-Cenozoic_plate_boundaries_Matthews_etal.gpml Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml" -t 410-0 -c DCO_Carbonate_Platform-v3.gpml -a Global_EarthByte_GeeK07_COB_Terranes_Matthews_etal.gpml
+# Examples
+
+# For ACTIVE carbonate platforms only
+# e.g. ./DCO_subductionzone_analysis.sh -r "Global_EB_250-0Ma_GK07_Matthews_etal.rot Global_EB_410-250Ma_GK07_Matthews_etal.rot" -m "Global_EarthByte_Mesozoic-Cenozoic_plate_boundaries_Matthews_etal.gpml Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml" -t 410-0 -c DCO_Active_Carbonate_Platform-v3.gpml -a Global_EarthByte_GeeK07_COB_Terranes_Matthews_etal.gpml
+
+# For ACCUMULATING carbonate platforms 
+# e.g. ./DCO_subductionzone_analysis.sh -r "Global_EB_250-0Ma_GK07_Matthews_etal.rot Global_EB_410-250Ma_GK07_Matthews_etal.rot" -m "Global_EarthByte_Mesozoic-Cenozoic_plate_boundaries_Matthews_etal.gpml Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml" -t 410-0 -c DCO_Accumulated_Carbonate_Platform-v3.gpml -a Global_EarthByte_GeeK07_COB_Terranes_Matthews_etal.gpml
+
 
 # The analysis will produce a folder named Results containing four dat files:
 # global_continent_arc_percentage_data, global_sz_length_carbonate_data,

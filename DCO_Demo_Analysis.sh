@@ -55,10 +55,13 @@ rotfiles="DCO_Subduction_Analysis/Global_EB_250-0Ma_GK07_Matthews_etal.rot \
 DCO_Subduction_Analysis/Global_EB_410-250Ma_GK07_Matthews_etal.rot"  #Matthews et al. (in prep)
 
 model_features="DCO_Subduction_Analysis/Global_EarthByte_Mesozoic-Cenozoic_plate_boundaries_Matthews_etal.gpml \
-DCO_Subduction_Analysis/Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml DCO_Subduction_Analysis/Topology\
-BuildingBlocks_AREPS.gpml"  #Matthews et al. (in prep)
+DCO_Subduction_Analysis/Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml DCO_Subduction_Analysis/Topology"  #Matthews et al. (in prep)
 
-carbonate="DCO_Subduction_Analysis/DCO_Accumulated_Carbonate_Platforms.gpml"
+# Accumulating carbonate platform interactions
+carbonate="DCO_Subduction_Analysis/DCO_Accumulated_Carbonate_Platform-v3.gpml"
+
+# Active carbonate platform interactions
+# carbonate="DCO_Subduction_Analysis/DCO_Active_Carbonate_Platform-v3.gpml"
 
 continents="DCO_Subduction_Analysis/Global_EarthByte_GeeK07_COB_Terranes_Matthews_etal.gpml"
 
