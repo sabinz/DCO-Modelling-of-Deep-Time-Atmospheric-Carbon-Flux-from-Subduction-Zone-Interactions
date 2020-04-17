@@ -65,6 +65,17 @@ directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 rm -rf PlateBoundaryFeatures
 rm -rf Results
 
+# Initialise for PLOTTING
+
+frame=d # geographic -180/180/-90/90
+proj=W115/20c # Mollweide projection, central meridian, and width (in centimeters)
+
+# GMT plotting defaults for reproducibility
+gmt gmtset PS_COLOR_MODEL=RGB PS_MEDIA=A2 MAP_FRAME_TYPE=plain FORMAT_GEO_MAP=ddd:mm:ssF FONT_ANNOT_PRIMARY=14p MAP_FRAME_PEN=thin FONT_LABEL=16p,Helvetica,black PROJ_LENGTH_UNIT=cm
+coastlines=Matthews++_2016_Coastlines.gpmlz
+plotting_cpt=carbonates_v2.cpt
+#plotting_cpt=carbonates.cpt
+
 # Main function called to initialise script
 main(){
 
@@ -321,15 +332,51 @@ sz_length_con_arc=$(calculate_sz_length_continentArc "$rotfile" "$age" "$contine
 # Calculate proportion of global subduction zones that are continental arcs opposed to intra-oceanic arcs
 con_arc_percent=$(calculate_sz_percentage_continentArc $sz_length_con_arc $sz_total_length_km)
 
-# Migrate all resolved feature files at each timestep to a new age-stamped folder
-mv *.gmt *.xml PlateBoundaryFeatures/${age}
-
-
 # Append age and corresponding values calculated by the analysis functions to results files
 echo $age $sz_total_length_km >> $global_sz_length
 echo $age $sz_carbonate >> $global_sz_length_carbonate
 echo $age $sz_length_con_arc >> $global_sz_length_continentarc
 echo $age $con_arc_percent >> $global_continent_arc_percentage
+
+python ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${coastlines} -t ${age} -e gmt -- coast
+
+python ${directory}/scripts/resolve_topologies_V.2.py -r ${rotfile} -m ${topologies} -t ${age} -e xy 
+
+# Migrate all resolved feature files at each timestep to a new age-stamped folder
+mv topology*.xy *.gmt *.xml *.nc PlateBoundaryFeatures/${age}
+
+#  ### START OF PLOTTING SECTION ###
+
+carbonate_platform_grid=PlateBoundaryFeatures/${age}/carbonate_platforms_plotting_${age}.nc
+
+psfile=carbonates_${age}.ps
+
+continents=PlateBoundaryFeatures/${age}/continental_polygons_closed_${age}.gmt
+coastline=PlateBoundaryFeatures/${age}/reconstructed_coast_${age}.0Ma.gmt
+topologies=PlateBoundaryFeatures/${age}/topology_boundary_polygons_${age}.00Ma.xy
+subduction_left=PlateBoundaryFeatures/${age}/topology_subduction_boundaries_sL_${age}.00Ma.xy
+subduction_right=PlateBoundaryFeatures/${age}/topology_subduction_boundaries_sR_${age}.00Ma.xy
+
+gmt psbasemap -R${frame} -J${proj} -Ba30 -G224 -Y5c -P -K -V4 > $psfile
+     
+gmt psxy -R -J $continents -G210/180/140 -L -K -O -V4 >> $psfile
+
+gmt psxy -R -J $coastline -Gnavajowhite4 -K -O -V4 >> $psfile
+
+gmt grdimage -C${plotting_cpt} ${carbonate_platform_grid} -J -R -V -Q -K -O -t20 >> $psfile
+
+gmt psxy -R -J -W1p,80 $topologies -K -O -V4 -N >> $psfile
+
+gmt psxy -R -J -W1p,80 -Sf7p/2plt -K -O ${subduction_left} -V4 -N >> $psfile
+gmt psxy -R -J -W1p,80 -Sf7p/2prt -K -O ${subduction_right} -V4 -N >> $psfile
+
+echo "18 0 $age Ma" | gmt pstext -F+f26,Helvetica,black -R0/15/0/1 -Jx1 -N -O -V4 >> $psfile
+
+gmt psconvert ${psfile} -A -Tj -P
+
+#  ### END OF PLOTTING SECTION ###
+# rm *.xy # *.ps
+
 
 # Increment age
 age=$(( $age + 1 ))
@@ -452,6 +499,8 @@ gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I10k -N0/1/1 -G${car
 # gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I1s -N0/1/1 -G${carbonate_mask_grid} -V
 # low res for testing, 1 degree
 # gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I1d -N0/1/1 -G${carbonate_mask_grid} -V
+# grid for plotting
+gmt grdmask reconstructed_carbonate_${age}.0Ma.gmt -fg -Rd -I10k -NNaN/1/1 -Gcarbonate_platforms_plotting_${age}.nc -V
 
 cp ${carbonate_mask_grid} PlateBoundaryFeatures/reconstructed_carbonate_mask_${age}.nc
 
