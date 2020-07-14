@@ -142,9 +142,14 @@ find_grid_prefix(){
 local grid_direc=$1
 local grid_prefix=''
 
-for entry in "$grid_direc"/*
+for entry in "$grid_direc"/*.nc # Change .nc to .grd in case dealing with older netcdf files
 do
-grid_prefix=$(echo $entry | sed 's/.*\/\([^0-9]*\).*/\1/')
+
+grid_suffix=$( echo $entry | rev | awk -F/ '{ print $1 }' | awk -F'[-_]' '{print $1}' | rev ) # SZ2020
+
+# grid_prefix=$(echo $entry | sed 's/.*\/\([^0-9]*\).*/\1/')
+grid_prefix=$( echo $entry | rev | awk -F/ '{ print $1 }' | rev | sed 's/'${grid_suffix}'//g' )  # SZ2020
+
 break
 done
 
@@ -296,8 +301,8 @@ do
 
 echo >&2 "Time Step: $age"
 
-age_grid_file="$age_grid_direc/$age_grid_prefix$age.grd"
-sed_grid_file="$sed_grid_direc/$sed_grid_prefix$age.grd"
+age_grid_file="${age_grid_direc}/${age_grid_prefix}${age}.nc"
+sed_grid_file="${sed_grid_direc}/${sed_grid_prefix}${age}.nc"
 
 # Use pygplates to export resolved topologies and remove duplicate segments
 python $directory/scripts/resolve_topologies_V.2.py -r ${rotfile} -m $topologies -t ${age} -e ${outfile_format} \
@@ -395,7 +400,7 @@ build_co2_grid(){
 
 local age_grid_file=$1
 local age=$2
-local tmp_co2_grid="tmp_co2_grid.grd"
+local tmp_co2_grid="tmp_co2_grid.nc"
 
 local prof_spacing=10
 local prof_interval=1
@@ -410,20 +415,20 @@ local co2_grid_file_xyz="tmp_co2_grid.xyz"
 
 echo -e >&2 "\n\t   Converting $agegrd to $tmp_co2_grid\n"
 
-gmt grdmath -V $age_grid_file LOG10 2.49 MUL -1.55 ADD = tmp.grd
+gmt grdmath -V ${age_grid_file} LOG10 2.49 MUL -1.55 ADD = tmp.grd
 
 # Remove all negative values
 gmt grd2xyz tmp.grd -V >tmp1.xyz
 awk '{ if ($3 < 0 ) $3 = 0
 print ($1, $2, $3)}' tmp1.xyz >tmp2.xyz
 
-gmt xyz2grd tmp2.xyz -R$frame -I$grdint -G$tmp_co2_grid -fg -V
+gmt xyz2grd tmp2.xyz -R${frame} -I${grdint} -G${tmp_co2_grid} -fg -V
 
-mv -f $tmp_co2_grid "CO2_Grid_Files/co2_grid_file_${age}.grd"
+mv -f $tmp_co2_grid "CO2_Grid_Files/co2_grid_file_${age}.nc"
 
 rm tmp.grd tmp?.xyz $co2_grid_file_xyz
 
-echo "CO2_Grid_Files/co2_grid_file_${age}.grd"
+echo "CO2_Grid_Files/co2_grid_file_${age}.nc"
 
 }
 

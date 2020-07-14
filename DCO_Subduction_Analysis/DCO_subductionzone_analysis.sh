@@ -72,7 +72,7 @@ proj=W115/20c # Mollweide projection, central meridian, and width (in centimeter
 
 # GMT plotting defaults for reproducibility
 gmt gmtset PS_COLOR_MODEL=RGB PS_MEDIA=A2 MAP_FRAME_TYPE=plain FORMAT_GEO_MAP=ddd:mm:ssF FONT_ANNOT_PRIMARY=14p MAP_FRAME_PEN=thin FONT_LABEL=16p,Helvetica,black PROJ_LENGTH_UNIT=cm
-coastlines=Matthews++_2016_Coastlines.gpmlz
+coastlines=PlateMotionModel_and_GeometryFiles/Matthews++_2016_Coastlines.gpmlz
 plotting_cpt=carbonates_v2.cpt
 #plotting_cpt=carbonates.cpt
 
@@ -317,7 +317,8 @@ echo >&2 "Time Step: $age"
 mkdir -p PlateBoundaryFeatures/${age}
 
 # Use pygplates to export resolved topologies and remove duplicate segments
-python ${directory}/scripts/resolve_topologies_V.2.py -r ${rotfile} -m $topologies -t ${age} -e ${outfile_format} \
+echo ${topologies}
+python ${directory}/scripts/resolve_topologies_V.2.py -r ${rotfile} -m ${topologies} -t ${age} -e ${outfile_format} \
 -- ${outfilename_prefix}
 
 # Calculate total global subduction zone length (km)
@@ -353,7 +354,7 @@ psfile=carbonates_${age}.ps
 
 continents=PlateBoundaryFeatures/${age}/continental_polygons_closed_${age}.gmt
 coastline=PlateBoundaryFeatures/${age}/reconstructed_coast_${age}.0Ma.gmt
-topologies=PlateBoundaryFeatures/${age}/topology_boundary_polygons_${age}.00Ma.xy
+topologies_plot=PlateBoundaryFeatures/${age}/topology_boundary_polygons_${age}.00Ma.xy
 subduction_left=PlateBoundaryFeatures/${age}/topology_subduction_boundaries_sL_${age}.00Ma.xy
 subduction_right=PlateBoundaryFeatures/${age}/topology_subduction_boundaries_sR_${age}.00Ma.xy
 
@@ -365,7 +366,7 @@ gmt psxy -R -J $coastline -Gnavajowhite4 -K -O -V4 >> $psfile
 
 gmt grdimage -C${plotting_cpt} ${carbonate_platform_grid} -J -R -V -Q -K -O -t20 >> $psfile
 
-gmt psxy -R -J -W1p,80 $topologies -K -O -V4 -N >> $psfile
+gmt psxy -R -J -W1p,80 $topologies_plot -K -O -V4 -N >> $psfile
 
 gmt psxy -R -J -W1p,80 -Sf7p/2plt -K -O ${subduction_left} -V4 -N >> $psfile
 gmt psxy -R -J -W1p,80 -Sf7p/2prt -K -O ${subduction_right} -V4 -N >> $psfile
