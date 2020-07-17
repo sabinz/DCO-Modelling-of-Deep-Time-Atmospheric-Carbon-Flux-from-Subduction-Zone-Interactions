@@ -15,7 +15,7 @@
 # not recognize the second varible.
 
 # IMPORTANT!
-# The Matthews et al. (2016) model has been updated with a fix for the Pacific 
+# The Matthews et al. (2016) has been updated with a fix for the Pacific 
 # reference frame following Torsvik et al. (2019). The Pall et al. (2018) paper 
 # had used older variants of the models before the fixes were made to Pacific plate motions. 
 
@@ -23,6 +23,7 @@
 
 # Matthews, K.J., Maloney, K.T., Zahirovic, S., Williams, S.E., Seton, M. and Müller, R.D., In Review. Global plate
 # boundary evolution and kinematics since the late Paleozoic. Global and Planetary Change
+
 
 #################### Make all sub shell scripts executable ####################
 
@@ -38,10 +39,10 @@ model_features="PlateMotionModel_and_GeometryFiles/Global_EarthByte_Mesozoic-Cen
 PlateMotionModel_and_GeometryFiles/Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml"  #Matthews et al. (2016, CORRECTED)
 
 # Accumulating carbonate platform interactions
-carbonate="PlateMotionModel_and_GeometryFiles/DCO_Accumulated_Carbonate_Platform-v3.gpml"
+# carbonate="PlateMotionModel_and_GeometryFiles/DCO_Accumulated_Carbonate_Platform-v3.gpml"
 
 # Active carbonate platform interactions
-# carbonate="DCO_Subduction_Analysis/DCO_Active_Carbonate_Platform-v3.gpml"
+carbonate="PlateMotionModel_and_GeometryFiles/DCO_Active_Carbonate_Platform-v3.gpml"
 
 continents="PlateMotionModel_and_GeometryFiles/Global_EarthByte_GeeK07_COB_Terranes_Matthews_etal.gpml"
 
@@ -59,10 +60,10 @@ DCO_Subduction_Analysis/DCO_subductionzone_analysis.sh -r "$rotfiles" -c "$carbo
 ############################ Run DCO Oceanic Crust Analysis ###############################
 
 # Make sure all arguments are enclosed in double quotes
+# Download InputGrids from Zenodo, as these will not be stored on Github
+age_grids="InputGrids/Matthews_etal_2016_CORRECTED_AgeGrid"
 
-sediment_grids="/Users/sabinz/SedimentThickness/Matthews_etal_2016_CORRECTED_SedimentThickness/Mask"
-
-age_grids="/Users/sabinz/Agegrids/Matthews_etal_CORRECTED/Mask"
+sediment_grids="InputGrids/Matthews_etal_2016_CORRECTED_SedThickness"
 
 fromage=200 # Crust analysis is limited to the last 250 Ma, and sediment thickness analysis back to 200 Ma
 

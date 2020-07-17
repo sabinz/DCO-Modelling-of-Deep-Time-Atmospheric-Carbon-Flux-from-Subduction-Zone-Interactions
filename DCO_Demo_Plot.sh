@@ -65,7 +65,7 @@ sz_curve=Results/global_sz_length_data.dat
 sz_region=0/400/50000/100000
 
 carbonate_curve=Results/global_sz_length_carbonate_data.dat
-carbonate_region=0/400/0/15000
+carbonate_region=0/400/0/32000
 
 continentalarc_curve=Results/global_sz_length_continentarc_data.dat
 continental_region=0/400/30000/100000
@@ -91,14 +91,14 @@ gmt psxy $co2_curve -R$co2_region -J$co2_projection $AdditionalFlags  --MAP_DEFA
 gmt psconvert -A2/2/2/2 -V -Tg -P $psfile
 mv $psfile PostScripts
 mv $pngfile Graphs
-open "Graphs/$pngfile"
+# open "Graphs/$pngfile"
 
 
 
 # Plot total subduction zones with active carbonate platforms and palaeoatmospheric CO2 levels
 echo "Plotting total subduction zone lengths with carbonate platforms and palaeoatmospheric CO2 levels"
-psfile="Total_Subduction_Zones_With_Active_Carbonate_And_${co2_prefix}.ps"
-pngfile="Total_Subduction_Zones_With_Active_Carbonate_And_${co2_prefix}.png"
+psfile="Total_Subduction_Zones_With_Carbonate_And_${co2_prefix}.ps"
+pngfile="Total_Subduction_Zones_With_Carbonate_And_${co2_prefix}.png"
 gmt psbasemap -R$sz_region -J$projection -B20:"Age (Ma)":S:.\
 "Length of Subduction Zones, Interactions with Active Carbonate Platforms & $model": -K -V > $psfile
 
@@ -114,7 +114,7 @@ gmt psxy $co2_curve -R$co2_region -J$projection $AdditionalFlags --MAP_DEFAULT_P
 gmt psconvert -A2/2/2/2 -V -Tg -P $psfile
 mv $psfile PostScripts
 mv $pngfile Graphs
-open "Graphs/$pngfile"
+# open "Graphs/$pngfile"
 
 
 
@@ -140,7 +140,7 @@ $co2_curve -O -V >> $psfile
 gmt psconvert -A2/2/2/2 -V -Tg -P $psfile
 mv $psfile PostScripts
 mv $pngfile Graphs
-open "Graphs/$pngfile"
+# open "Graphs/$pngfile"
 
 
 
@@ -164,7 +164,7 @@ gmt psxy $co2_curve -R$co2_region -J$projection $AdditionalFlags --MAP_DEFAULT_P
 gmt psconvert -A2/2/2/2 -V -Tg -P $psfile
 mv $psfile PostScripts
 mv $pngfile Graphs
-open "Graphs/$pngfile"
+# open "Graphs/$pngfile"
 
 
 # gmt set PAPER_MEDIA A2 COLOR_MODEL RGB MAP_FRAME_TYPE plain FONT_LABEL 18p,Helvetica,black FONT_ANNOT_PRIMARY 12p,Helvetica,black FONT_ANNOT_SECONDARY 8p,Helvetica,black 
@@ -199,9 +199,9 @@ else
 fi
 
 
-age_region=0/230/40/100
-crust_co2_region=0/230/2.2/3.4
-sed_region=0/230/200/600
+age_region=0/230/20/100
+crust_co2_region=0/230/2.0/3.4
+sed_region=0/230/0/450
 
 co2_stats=Results/global_crust_co2_data.dat
 age_stats=Results/global_crust_age_data.dat
@@ -236,7 +236,7 @@ gmt psxy -R$age_region -J$projection --MAP_DEFAULT_PEN=+orangered --FONT_ANNOT_P
 gmt psconvert -A2/2/2/2 -V -Tg -P $psfile
 mv $psfile PostScripts
 mv $pngfile Graphs
-open "Graphs/$pngfile"
+# open "Graphs/$pngfile"
 
 
 
@@ -262,7 +262,7 @@ gmt psxy -R$crust_co2_region -J$projection --MAP_DEFAULT_PEN=+orangered \
 gmt psconvert -A2/2/2/2 -V -Tg -P $psfile
 mv $psfile PostScripts
 mv $pngfile Graphs
-open "Graphs/$pngfile"
+# open "Graphs/$pngfile"
 
 
 
@@ -288,7 +288,7 @@ gmt psxy -R$sed_region -J$projection --MAP_DEFAULT_PEN=+orangered --FONT_ANNOT_P
 gmt psconvert -A2/2/2/2 -V -Tg -P $psfile
 mv $psfile PostScripts
 mv $pngfile Graphs
-open "Graphs/$pngfile"
+# open "Graphs/$pngfile"
 
 
 rm gmt.conf gmt.history *median.dat *mean.dat
