@@ -338,7 +338,7 @@ rm $raw_dat_crust_age $raw_dat_crust_co2 $raw_dat_crust_sed 'gmt.history'
 mv *.dat Results
 }
 
-# Recieves the raw dat file of the sample distribution and calculates various general stats
+# Receives the raw dat file of the sample distribution and calculates various general stats
 calculate_stats(){
 
 local raw_results=$1
@@ -366,7 +366,7 @@ echo $age $mean $stdev $median $max $min $samplesize >> $global_stats
 }
 
 
-# Function recieves grid file and subduction zone layer of a given age. Using gmt grdtrack the grid values are
+# Function receives grid file and subduction zone layer of a given age. Using gmt grdtrack the grid values are
 # sampled along the subduction zone layer geometry at 10 km intervals. The results are extracted from the grdtrack
 # output and listed in single column of a dat file.
 samples_grid_with_sz(){

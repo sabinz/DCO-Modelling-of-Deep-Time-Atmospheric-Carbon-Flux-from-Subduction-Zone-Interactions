@@ -61,9 +61,9 @@ DCO_Subduction_Analysis/DCO_subductionzone_analysis.sh -r "$rotfiles" -c "$carbo
 
 # Make sure all arguments are enclosed in double quotes
 # Download InputGrids from Zenodo, as these will not be stored on Github
-age_grids="InputGrids/Matthews_etal_2016_CORRECTED_AgeGrid"
+age_grids="InputGrids/Matthews_etal_2016_CORRECTED_AgeGrid/NoMask"
 
-sediment_grids="InputGrids/Matthews_etal_2016_CORRECTED_SedThickness"
+sediment_grids="InputGrids/Matthews_etal_2016_CORRECTED_SedThickness/NoMask"
 
 fromage=200 # Crust analysis is limited to the last 250 Ma, and sediment thickness analysis back to 200 Ma
 

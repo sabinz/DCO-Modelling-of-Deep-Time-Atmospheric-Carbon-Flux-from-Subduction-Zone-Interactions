@@ -175,7 +175,7 @@ gmt gmtset PS_COLOR_MODEL=RGB PS_MEDIA=A2 MAP_FRAME_TYPE=plain FORMAT_GEO_MAP=dd
 if [ "$1" == "Bergman" ] || [ "$1" == "bergman" ]  
 then
 	model='COPSE model (Bergman et al. 2004)'
-	co2_region=0/230/200/1400
+	co2_region=0/200/200/1400
 	co2_curve=CO2/copse_bergman_230-0Ma.dat
 	co2_prefix=Bergman_CO2
 	co2_label="Atmospheric CO@-2@- (pCO@-2@-)"
@@ -183,14 +183,14 @@ then
 elif [ "$1" == "Royer" ] || [ "$1" == "royer" ]
 then	
 	model='CO@-2@- Proxy Record (Royer 2006)'
-	co2_region=0/230/200/2400
+	co2_region=0/200/200/2400
 	co2_curve=CO2/proxy_royer_230-0Ma.dat
 	co2_prefix=Royer_CO2
 	co2_label="Atmospheric CO@-2@- (ppm)"
 	co2_unit_space=200
 else
 	model='CO@-2@- Proxy Record (Park & Royer 2011)'
-	co2_region=0/230/0/2500
+	co2_region=0/200/0/2500
 	co2_curve=CO2/proxy_park_230-0Ma.dat
 	co2_prefix=Park_CO2
 	co2_label="Atmospheric CO@-2@- (ppm)"
@@ -199,9 +199,9 @@ else
 fi
 
 
-age_region=0/230/20/100
-crust_co2_region=0/230/2.0/3.4
-sed_region=0/230/0/450
+age_region=0/200/20/115
+crust_co2_region=0/200/2.0/3.4
+sed_region=0/200/0/700
 
 co2_stats=Results/global_crust_co2_data.dat
 age_stats=Results/global_crust_age_data.dat
