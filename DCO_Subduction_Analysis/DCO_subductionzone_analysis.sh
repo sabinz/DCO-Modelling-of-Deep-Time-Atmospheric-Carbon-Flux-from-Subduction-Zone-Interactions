@@ -36,6 +36,7 @@
 #		  from the specified time to 0 Ma)
 #   -c    files depicting carbonate platform activity or accumulation (gpml or shp)
 #   -a    files depicting cotinental outlines  (gpml or shp)
+#   -s    files depicting present-day coastlines outlines  (gpml or shp)
 
 # If there are multiple feature files or rotation files following the argument
 # flag, separate the files with a space and enclose them with a double quotes
@@ -66,7 +67,7 @@ proj=W115/20c # Mollweide projection, central meridian, and width (in centimeter
 
 # GMT plotting defaults for reproducibility
 gmt gmtset PS_COLOR_MODEL=RGB PS_MEDIA=A2 MAP_FRAME_TYPE=plain FORMAT_GEO_MAP=ddd:mm:ssF FONT_ANNOT_PRIMARY=14p MAP_FRAME_PEN=thin FONT_LABEL=16p,Helvetica,black PROJ_LENGTH_UNIT=cm
-coastlines=PlateMotionModel_and_GeometryFiles/Matthews++_2016_Coastlines.gpmlz
+# coastlines=PlateMotionModel_and_GeometryFiles/Muller_etal_2019_Global_Coastlines.gpmlz
 plotting_cpt=carbonates_v2.cpt
 #plotting_cpt=carbonates.cpt
 
@@ -82,9 +83,10 @@ local raw_time=""
 local to_age=0
 local from_age=0
 local outfilename_prefix="Subduction_Zones_Analysis_" # Default name unless specified by user
+local coastlines=""
 
 # Parse Input Arguments
-while getopts "r:t:m:n:c:a:" opt; do
+while getopts "r:t:m:n:c:a:s:" opt; do
 case $opt in
 r)
 rotfile="$OPTARG"
@@ -121,6 +123,10 @@ a)
 continental_polygons="$OPTARG"
 ;;
 
+s)
+coastlines="$OPTARG"
+;;
+
 \?)
 echo >&2 "Invalid option: -$OPTARG"
 exit 1
@@ -142,7 +148,7 @@ validate_arguments "$rotfile" "$topologies" "$to_age" "$from_age" "$carbonate" "
 prompt_inputs
 
 # Excute analysis function
-run_analysis "$rotfile" "$topologies" "$to_age" "$from_age" "$carbonate" "$continental_polygons" "$outfilename_prefix"
+run_analysis "$rotfile" "$topologies" "$to_age" "$from_age" "$carbonate" "$continental_polygons" "$outfilename_prefix" "$coastlines"
 
 echo >&2 "Analysis Complete"
 
@@ -239,6 +245,8 @@ echo >&2 "Press return to confirm or ctrl+z to abort"
 read input_variable
 fi
 done
+
+
 
 # test name specified by user
 

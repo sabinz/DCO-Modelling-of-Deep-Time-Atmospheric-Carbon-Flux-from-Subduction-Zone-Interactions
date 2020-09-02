@@ -38,6 +38,8 @@ PlateMotionModel_and_GeometryFiles/Global_EB_410-250Ma_GK07_Matthews_etal.rot"  
 model_features="PlateMotionModel_and_GeometryFiles/Global_EarthByte_Mesozoic-Cenozoic_plate_boundaries_Matthews_etal.gpml \
 PlateMotionModel_and_GeometryFiles/Global_EarthByte_Paleozoic_plate_boundaries_Matthews_etal.gpml"  #Matthews et al. (2016, CORRECTED)
 
+coastlines="PlateMotionModel_and_GeometryFiles/Matthews++_2016_Coastlines.gpmlz"
+
 # Accumulating carbonate platform interactions
 # carbonate="PlateMotionModel_and_GeometryFiles/DCO_Accumulated_Carbonate_Platform-v3.gpml"
 
@@ -54,7 +56,7 @@ prefix="DCO_Subduction_Analysis"
 
 # Execute analysis
 DCO_Subduction_Analysis/DCO_subductionzone_analysis.sh -r "$rotfiles" -c "$carbonate" -t "$fromage-$toage" -a "$continents" \
--m "$model_features" -n "$prefix"
+-m "$model_features" -n "$prefix" -s "$coastlines"
 
 
 
