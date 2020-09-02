@@ -1,4 +1,4 @@
-# !/bin/bash
+# !/bin/zsh
 
 # FILE NAME: DCO_Demo_Analysis.sh
 # DESCRIPTION: Establishes all arguments and executes DCO Subduction Zone Analysis and DCO Crust Analysis
@@ -21,7 +21,7 @@
 
 #################################### References ###############################
 
-# Matthews, K.J., Maloney, K.T., Zahirovic, S., Williams, S.E., Seton, M. and Müller, R.D., In Review. Global plate
+# Matthews, K.J., Maloney, K.T., Zahirovic, S., Williams, S.E., Seton, M. and Müller, R.D., (2016) Global plate
 # boundary evolution and kinematics since the late Paleozoic. Global and Planetary Change
 
 
@@ -55,6 +55,7 @@ prefix="DCO_Subduction_Analysis"
 # Execute analysis
 DCO_Subduction_Analysis/DCO_subductionzone_analysis.sh -r "$rotfiles" -c "$carbonate" -t "$fromage-$toage" -a "$continents" \
 -m "$model_features" -n "$prefix"
+
 
 
 ############################ Run DCO Oceanic Crust Analysis ###############################

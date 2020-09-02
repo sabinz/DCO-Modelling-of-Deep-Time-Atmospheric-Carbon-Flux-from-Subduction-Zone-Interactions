@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # FILENAME: DCO_subductionzone_analysis.sh
 # DESCRIPTION: Produces global temporal results depicting total subduction zone lengths,
@@ -6,16 +7,16 @@
 #              (Andean-style) subduction to oceanic subduction zones.
 # AUTHORS: Sebastiano Doss, Jodie Pall, Sabin Zahirovic
 # START DATE: 29th of February 2016
-# LAST EDIT: 14th of July 2020
+# LAST EDIT: 2nd of September 2020
 
 # Instructions
 
-# In order to run these workflows, GMT 6 or newer, Python 2.7 along with the python
-# module pyGPlates (rev. 12 or newer) must be installed on your system. In terminal
+# In order to run these workflows, GMT 6 or newer, Python 3.8 along with the python
+# module pyGPlates (rev. 28 or newer) must be installed on your system. In terminal
 # the curent directory should be changed to the folder where the
 # DCO_subductionzone_analysis.sh is located.
 
-# Latest test performed using GMT 6.1, and pyGPlates rev. 18
+# Latest test performed using GMT 6.2, and pyGPlates rev. 28
 
 # To run the analysis, the workflow folder must include:
 # The DCO_subductionzone_analysis.sh script; the plate model (including all geometry (gpml)
@@ -311,8 +312,7 @@ mkdir -p PlateBoundaryFeatures/${age}
 
 # Use pygplates to export resolved topologies and remove duplicate segments
 echo ${topologies}
-python ${directory}/scripts/resolve_topologies_V.2.py -r ${rotfile} -m ${topologies} -t ${age} -e ${outfile_format} \
--- ${outfilename_prefix}
+python3 ${directory}/scripts/resolve_topologies_V.2.py -r ${rotfile} -m ${topologies} -t ${age} -e ${outfile_format} -- ${outfilename_prefix}
 
 # Calculate total global subduction zone length (km)
 sz_total_length_km=$(calculate_sz_length_total "$outfilename_prefix")
@@ -332,9 +332,9 @@ echo $age $sz_carbonate >> $global_sz_length_carbonate
 echo $age $sz_length_con_arc >> $global_sz_length_continentarc
 echo $age $con_arc_percent >> $global_continent_arc_percentage
 
-python ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${coastlines} -t ${age} -e gmt -- coast
+python3 ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${coastlines} -t ${age} -e gmt -- coast
 
-python ${directory}/scripts/resolve_topologies_V.2.py -r ${rotfile} -m ${topologies} -t ${age} -e xy 
+python3 ${directory}/scripts/resolve_topologies_V.2.py -r ${rotfile} -m ${topologies} -t ${age} -e xy 
 
 # Migrate all resolved feature files at each timestep to a new age-stamped folder
 mv topology*.xy *.gmt *.xml *.nc PlateBoundaryFeatures/${age}
@@ -483,7 +483,7 @@ local szRlayer=${outfilename_prefix}subduction_boundaries_sR_${age}.00Ma.gmt
 local carbonate_mask_grid="reconstructed_carbonate_mask_${age}.nc"
 
 # Reconstruct carboante platform polygons with given age and plate kinetmatic model
-python ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${carbonate} -t ${age} -e gmt -- carbonate
+python3 ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${carbonate} -t ${age} -e gmt -- carbonate
 
 cp reconstructed_carbonate_${age}.0Ma.gmt PlateBoundaryFeatures/${age}/reconstructed_carbonate_${age}.0Ma.gmt
 
@@ -536,7 +536,7 @@ local szLlayer=${outfilename_prefix}subduction_boundaries_sL_${age}.00Ma.gmt
 local szRlayer=${outfilename_prefix}subduction_boundaries_sR_${age}.00Ma.gmt
 
 # reconstruct continental polygons with given age and plate kinetmatic model
-python ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${continental_polygons} -t ${age} -e xy -- COB
+python3 ${directory}/scripts/reconstruct_feature.py -r ${rotfile} -m ${continental_polygons} -t ${age} -e xy -- COB
 
 # Force closure of polylines to create closed continental polygons
 gmt spatial reconstructed_COB_${age}.0Ma.xy -F > ${closed_continental_polygons}

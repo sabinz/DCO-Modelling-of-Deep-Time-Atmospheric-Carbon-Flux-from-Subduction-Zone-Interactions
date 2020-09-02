@@ -1,4 +1,3 @@
-#!/bin/python
 
 """
     Copyright (C) 2015 The University of Sydney, Australia
@@ -17,7 +16,7 @@
     51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """
 
-from __future__ import print_function
+
 import argparse
 import sys
 import os.path

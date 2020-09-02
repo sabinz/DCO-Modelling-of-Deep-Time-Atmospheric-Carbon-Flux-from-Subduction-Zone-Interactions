@@ -16,7 +16,7 @@
     51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """
 
-from __future__ import print_function
+
 import argparse
 import math
 import sys
@@ -47,10 +47,13 @@ def filter_anomalous(anomalous_feature_collection, resolved_topology_feature_col
     for feature_item in black_list:
         black_list_ids.append(feature_item.get_feature_id())
     
-    # Remove blacklist items from subduction zone feature collection
-    resolved_topology_feature_collection.remove(black_list_ids)
+    # Remove blacklist items from subduction zone feature collection.
+    filtered_resolved_topology_features = []
+    for feature in resolved_topology_feature_collection:
+        if feature.get_feature_id() not in black_list_ids:
+            filtered_resolved_topology_features.append(feature)
 
-    return resolved_topology_feature_collection
+    return pygplates.FeatureCollection(filtered_resolved_topology_features)
 
 
 # Gathers the total length (in kms) of a feature with multiple geometries.  
@@ -84,7 +87,7 @@ def sort_fl_by_length(anomalous_feature_collection):
         anomalous_geolength_list.append(get_geometries_total_length(geo))
         
     # Zips together feature list and geometry lengths lists 
-    zipped = zip(anomalous_feature_collection,anomalous_geolength_list)
+    zipped = list(zip(anomalous_feature_collection,anomalous_geolength_list))
     
     # Reorders zipped list by geometry lengths in reversed order
     zipped.sort(key = lambda a: a[1], reverse=True)

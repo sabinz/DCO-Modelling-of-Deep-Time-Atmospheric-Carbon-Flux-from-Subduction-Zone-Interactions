@@ -6,12 +6,12 @@
 #              age and CO2 concentration in the upper crust.
 # AUTHORS: Sebastiano Doss, Jodie Pall, Sabin Zahirovic
 # START DATE: 15th of May 2016
-# LAST EDIT: 27th of March 2020
+# LAST EDIT: 2nd of September 2020
 
 # Instructions
 
-# In order to run these workflows, GMT 6, Python 2.7 along with the python
-# module pyGPlates (rev. 12 or newer) must be installed on your system. In terminal
+# In order to run these workflows, GMT 6.2, Python 3.8 along with the python
+# module pyGPlates (rev. 28 or newer) must be installed on your system. In terminal
 # the curent directory should be changed to the folder where the DCO_crust_analysis.sh
 # is located. To run the analysis, the workflow folder must include:
 # the DCO_crust_analysis.sh script; the plate model (including all geometry (gpml) and
@@ -305,7 +305,7 @@ age_grid_file="${age_grid_direc}/${age_grid_prefix}${age}.nc"
 sed_grid_file="${sed_grid_direc}/${sed_grid_prefix}${age}.nc"
 
 # Use pygplates to export resolved topologies and remove duplicate segments
-python $directory/scripts/resolve_topologies_V.2.py -r ${rotfile} -m $topologies -t ${age} -e ${outfile_format} \
+python3 $directory/scripts/resolve_topologies_V.2.py -r ${rotfile} -m $topologies -t ${age} -e ${outfile_format} \
 -- ${outfilename_prefix}
 
 sz_layer=${outfilename_prefix}subduction_boundaries_${age}.00Ma.gmt

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # FILENAME: DCO_Demo_Plot.sh
-# DESCRIPTION: Plots of DCO analysis results generated using the Matthews et al. (2016) plate model
+# DESCRIPTION: Plots of DCO analysis results generated using the Matthews et al. (2016) updated plate model
 # compared with CO2 proxy records from Park & Royer (2011), Royer (2011) and modelled 
 # palaeoatmospheric CO2 from Bergman et al. (2004) from 410 Ma to present day. 
 # Grids of sediment thickness and CO2-content of the upper oceanic crust generated 
-# from the Muller et al. AREPS (2016) age grid from 230 Ma to present day.
+# from the Matthews et al. (2016) age grid from 200 Ma to present day.
 #              
 # AUTHORS: Sebastiano Doss, Jodie Pall
 # START DATE: 30 June 2016
