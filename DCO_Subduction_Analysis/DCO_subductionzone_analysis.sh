@@ -63,7 +63,7 @@ rm -rf Results
 # Initialise for PLOTTING
 
 frame=d # geographic -180/180/-90/90
-proj=W115/20c # Mollweide projection, central meridian, and width (in centimeters)
+proj=R30/20c # Mollweide projection, central meridian, and width (in centimeters)
 
 # GMT plotting defaults for reproducibility
 gmt gmtset PS_COLOR_MODEL=RGB PS_MEDIA=A2 MAP_FRAME_TYPE=plain FORMAT_GEO_MAP=ddd:mm:ssF FONT_ANNOT_PRIMARY=14p MAP_FRAME_PEN=thin FONT_LABEL=16p,Helvetica,black PROJ_LENGTH_UNIT=cm
@@ -359,7 +359,7 @@ topologies_plot=PlateBoundaryFeatures/${age}/topology_boundary_polygons_${age}.0
 subduction_left=PlateBoundaryFeatures/${age}/topology_subduction_boundaries_sL_${age}.00Ma.xy
 subduction_right=PlateBoundaryFeatures/${age}/topology_subduction_boundaries_sR_${age}.00Ma.xy
 
-gmt psbasemap -R${frame} -J${proj} -Ba30 -G224 -Y5c -P -K -V4 > $psfile
+gmt psbasemap -R${frame} -J${proj} -Ba180/a30WeSn -G224 -Y5c -P -K -V4 > $psfile
      
 gmt psxy -R -J $continents -G210/180/140 -L -K -O -V4 >> $psfile
 
@@ -369,8 +369,8 @@ gmt grdimage -C${plotting_cpt} ${carbonate_platform_grid} -J -R -V -Q -K -O -t20
 
 gmt psxy -R -J -W1p,80 $topologies_plot -K -O -V4 -N >> $psfile
 
-gmt psxy -R -J -W1p,80 -Sf7p/2plt -K -O ${subduction_left} -V4 -N >> $psfile
-gmt psxy -R -J -W1p,80 -Sf7p/2prt -K -O ${subduction_right} -V4 -N >> $psfile
+gmt psxy -R -J -W1p,red -Sf7p/2plt -K -O ${subduction_left} -V4 -N >> $psfile
+gmt psxy -R -J -W1p,red -Sf7p/2prt -K -O ${subduction_right} -V4 -N >> $psfile
 
 echo "18 0 $age Ma" | gmt pstext -F+f26,Helvetica,black -R0/15/0/1 -Jx1 -N -O -V4 >> $psfile
 
