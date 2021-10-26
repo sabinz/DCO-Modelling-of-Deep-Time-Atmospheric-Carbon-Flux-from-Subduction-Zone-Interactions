@@ -1,0 +1,599 @@
+# @VGMT1.0 @GMULTILINESTRING
+# @R-179.545708928/178.227250598/-73.3594468452/83.1767977137             
+# @Je4326
+# @Jp"+proj=longlat +datum=WGS84 +no_defs"
+# @Jw"GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]"
+# @NANCHOR|TIME|FILE1|FILE2|FILE3|FILE4|FILE5|FILE6|RECONFILE1|RECONFILE2|RECONFILE3|RECONFILE4|RECONFILE5|RECONFILE6|RECONFILE7|RECONFILE8|RECONFILE9|RECONFILE10|RECONFILE11|RECONFILE12|PLATEID1|TYPE|GPGIM_TYPE|FROMAGE|TOAGE|NAME|DESCR|FEATURE_ID|PLATEID2|RECON_METH|L_PLATE|R_PLATE|SPREAD_ASY|IMPORT_AGE
+# @Tinteger|double|string|string|string|string|string|string|string|string|string|string|string|string|string|string|string|string|string|string|integer|string|string|double|double|string|string|string|integer|string|integer|integer|double|double
+# FEATURE_DATA
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|201|TR|gpml:SubductionZone|124|0|"South America trench taken from a combination of RUM and COB file"||GPlates-f93fbe21-6933-4309-9f8d-d0645ded7dc2|0||0|0|0|0
+-64.7587256166046 -65.7408422825387
+-64.7611808096041 -65.7393916745626
+-65.0913261210413 -65.5355606779547
+-65.4163513144911 -65.3310374643481
+-65.7024869863758 -65.1459928213914
+-66.0056227739114 -64.9643070263226
+-66.2688905664106 -64.7806837199822
+-66.4197196736601 -64.653371348881
+-66.8388973266567 -64.3394315503045
+-66.9115548395133 -64.2746119822266
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|201|TR|gpml:SubductionZone|125|65.1|"South America trench taken from COB file and RUM"||GPlates-a9cd06b7-0179-4182-ba31-3980c2c38fe5|0||0|0|0|0
+-64.7587256166046 -65.7408422825387
+-64.7611808096041 -65.7393916745626
+-65.0913261210414 -65.5355606779548
+-65.416351314491 -65.331037464348
+-65.7024869863756 -65.1459928213911
+-66.0056227739114 -64.9643070263225
+-66.2688905664107 -64.7806837199822
+-66.4197196736601 -64.653371348881
+-66.8388973266566 -64.3394315503044
+-66.9115548395131 -64.2746119822265
+>
+-66.9115548395131 -64.2746119822265
+-67.3491341781374 -63.8769178112319
+-67.6347058719777 -63.6009323656158
+-67.7884985171104 -63.1994166449142
+-67.7911242250936 -63.1318401071691
+-67.7286114795715 -62.7563982131183
+-67.6027536166595 -62.3973441629176
+-67.4520389562623 -62.0250238729822
+-67.3370469761729 -61.6982431925663
+-67.2604913252765 -61.538755184256
+-67.1986323208699 -61.2242553904756
+-67.2563033300775 -60.8154639302199
+-67.283509549556 -60.4348883023401
+-67.2522305582112 -60.0922557770344
+-67.2402108559613 -59.7902861247501
+-67.1669063101443 -59.5384675224446
+-67.0958747165405 -59.2157533385169
+-66.9923989424833 -58.8593637993741
+-66.7042016727621 -58.4352024488282
+-66.3576056575076 -58.1089734745912
+-66.1221742485291 -57.9147563152505
+-65.8530121751012 -57.6797904615499
+-65.5301295673936 -57.4119740719168
+-65.0138772219082 -56.9931850237628
+-64.5417887525664 -56.6315344762772
+-64.1982372111471 -56.3208299809023
+-63.9266905104524 -56.0105517556885
+-63.8321814153043 -55.5742377386556
+-63.7427852889451 -55.2973596568726
+-63.6711593402963 -55.0680556682068
+-63.6367854563164 -54.9913240527025
+-63.5114440598186 -54.7439093040596
+-63.3641353912027 -54.4466304807775
+-63.1755564910346 -54.0962524868273
+-63.0000074349342 -53.8052122949031
+-62.8084537250359 -53.4922746937272
+-62.5960660556616 -53.1475880694834
+-62.4445107143583 -52.8958976658964
+-62.0749888743169 -52.2690039760492
+-61.8364953066477 -51.8620544748837
+-61.6020999092393 -51.476332842255
+-61.3743386249974 -51.1183415185914
+-61.05842646981 -50.619877803789
+-60.885103349768 -50.3451071741846
+-60.6449830972521 -49.8979659894368
+-60.5070122671982 -49.6211002286988
+-60.3262405061255 -49.269357099183
+-60.0376191725435 -49.0044052309236
+-59.6392021537478 -48.4513082899731
+-59.6392021537479 -48.4513082899737
+-59.479481057686 -47.9819328444111
+-59.2390837819405 -47.56438276704
+-58.2867734980214 -46.2049890406148
+-57.9051968741643 -45.2832841836938
+>
+-57.9051968741643 -45.2832841836938
+-56.5535004659805 -41.7510224967832
+-56.452896729388 -38.5727693058787
+-56.6340931795508 -34.4668716336327
+-56.4399673596744 -32.6722592654797
+-56.5653287426218 -31.948349579263
+-56.725564727719 -31.3808192824169
+-56.7955762122113 -30.8333542322351
+-57.0653613625005 -30.1133109682892
+-57.1059014071346 -29.9856662109364
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|8680|TR|gpml:SubductionZone|145|-999|"Challenger Plateau NE margin"||GPlates-bc16d2b0-7df7-4125-b7cb-ec0f250a783a|0||0|0|0|0
+168.907790981677 -62.9923505271576
+169.009850151229 -63.0550462496603
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|833|TR|gpml:SubductionZone|145|85.1|"East Gondwana Active Margin"||GPlates-af86e4a7-e956-4f9c-8c23-6ed2e0c6c6e2|0||0|0|0|0
+147.811450661933 -37.8884334842632
+148.434043349671 -38.3609620657431
+148.975926163969 -39.0289333466663
+149.202361711443 -39.8955235201902
+148.89851860849 -40.3553796260844
+148.217902207869 -41.3377567203655
+148.822431164053 -41.9123053632234
+148.726938654929 -42.7030866630956
+149.082693499621 -43.0873201092348
+149.952111799377 -43.5441492588421
+152.458612214829 -45.196798590875
+152.952290283541 -45.9965574628423
+153.147515876142 -47.1254152861649
+153.781789550234 -48.058659250951
+154.246906783587 -48.7891676376285
+154.923447079516 -49.4689577026262
+155.637647658088 -50.1826680292057
+156.29998056902 -50.662333950307
+156.637002568458 -51.1659892981753
+156.53921625952 -51.4552516175703
+156.522747055425 -51.672576984626
+156.367761762474 -51.9520845041384
+156.121344153219 -52.5881893813304
+155.511301011579 -53.4334986658011
+155.19330705704 -54.1515888583313
+154.942899317427 -54.9787105608686
+154.808685674757 -55.4111634479343
+153.430030782444 -56.1831133331461
+153.564341429792 -56.4513897651824
+153.854698999838 -57.155543086424
+154.740433567323 -57.7290656624555
+154.88872079405 -58.1360973555708
+154.882266435345 -58.9212284102856
+155.016947670538 -59.520274109354
+155.325370424966 -59.9117136024427
+155.223744936698 -60.6793080613797
+156.884724095855 -61.1947580957074
+157.833066778844 -61.4446556063476
+158.894604770869 -61.60704645455
+160.287508285055 -61.8839366696912
+160.488004609131 -61.9836928422034
+160.781118544935 -61.5884972031476
+162.297916952976 -61.6158090755341
+164.318906829383 -61.8131124116935
+165.78832746397 -61.9962681509238
+166.911022576559 -62.1808063635559
+>
+166.911022576559 -62.1808063635559
+167.154097433083 -62.2192761011167
+168.350972895502 -62.6441686166472
+168.907790981677 -62.9923505271576
+>
+168.907790981677 -62.9923505271576
+169.009850151229 -63.0550462496603
+>
+169.009850151229 -63.0550462496603
+170.637055226916 -63.8041550965692
+172.40562250245 -64.2258630102522
+174.773146172898 -64.5637158374583
+175.464931891055 -64.7468803464772
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|802|TR|gpml:SubductionZone|140|80|"ANT tr f Antarcticar COB MG-4-22-07"||GPlates-aea0b21f-98a5-42e4-ae6a-f97051078384|0||0|0|0|0
+-121.403433841768 -73.3073283160651
+-120.08854021319 -73.3594468451682
+-115.421524948044 -73.2899228133774
+-112.327906966104 -73.0928265514627
+-109.314254323435 -72.758542250794
+-106.96594801782 -72.6536866760362
+-103.783151857616 -72.495917853545
+-102.194146650844 -72.080689664078
+-99.9478401587972 -71.4350702457387
+-97.7012760288768 -70.5680679707518
+-94.9211467715388 -69.9776371382538
+-93.0134966416546 -69.4192261816739
+-91.1306392274024 -68.6409272143432
+-88.8974704441409 -67.5806842929195
+-87.0990288045432 -67.2038481700344
+-84.9822827205012 -66.9305537932076
+-83.204315158683 -66.3866696435137
+-79.9232197060767 -65.7534527806813
+-77.4865879894264 -64.9143236504436
+-75.8649257526386 -65.1966620364933
+-73.9182180190528 -65.4792767250828
+-71.7950370826251 -65.2128311230595
+-66.9115548395133 -64.2746119822266
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|879|TR|gpml:SubductionZone|140|98.1|Jarrod||GPlates-3480ea9b-1a82-45da-b824-8fe265ba3e9d|0||0|0|0|0
+-153.528582474553 -68.0020430291802
+-151.051597613107 -68.4484339726544
+>
+-151.051597613107 -68.4484339726544
+-147.903409784692 -68.9409594523983
+-140.352724835504 -70.5924014038721
+-135.399099638423 -71.5276335922696
+-126.523719717155 -72.7547279452013
+-121.403433841768 -73.3073283160651
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|529|TR|gpml:SubductionZone|180|52|"Lhasa subduction zone 180-100Ma according to Ana's model MS12"||GPlates-3b031b62-ef75-48b3-ae34-1a9470fb385a|606||0|0|0|0
+55.8000773433927 -1.11040248305284
+57.7140649849118 -1.98808891173485
+60.1325498087017 -2.98654599299831
+62.6795652744326 -3.75733490140736
+66.4900419033052 -4.56710332089839
+70.4549659380451 -5.1212566373542
+76.1320448997619 -4.72906351327885
+80.5650146198229 -3.88059999439837
+82.861957393149 -3.05164763986406
+83.665895135956 -2.6446962618707
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|301|TR|gpml:SubductionZone|140|108.1|"Uda-Murgal Subduction Zone GS"||GPlates-14cb579a-23c6-4e32-9d30-fa5ab1d73c34|0||0|0|0|0
+137.978709299555 79.1911168743108
+155.347426291129 80.7981279720151
+>
+155.347426291129 80.7981279720151
+159.898020640469 81.0187897755829
+-171.601873151027 82.880625241332
+-131.792183081014 83.1767977137022
+-115.386497026704 82.862723188896
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|182|TR|gpml:SubductionZone|120|67.1|"Alaska Subduction GS"||GPlates-4f9ada32-927f-463e-b191-cdbbc3b89717|0||0|0|0|0
+-69.835898344397 66.1708183461064
+-73.0913288130543 66.7480190818967
+-84.456786884314 69.6178688599982
+-89.3005487082154 70.9813539636251
+-95.1111993578308 73.7725810820202
+-95.2284302050303 73.8373162543833
+>
+-95.2284302050303 73.8373162543833
+-95.3291986989016 73.8925094894699
+>
+-95.3291986989016 73.8925094894699
+-101.463917033616 76.6094590714911
+-104.731608068873 79.2686667318895
+-109.99630367038 82.0714572515092
+-115.386497026704 82.862723188896
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|614|TR|gpml:SubductionZone|190|40.1|"North Borneo subduction"||GPlates-587dec09-2f10-4fa6-accb-6409dbdf2627|0||0|0|0|0
+121.493929782525 9.95264813336821
+119.403271968883 10.8252093289978
+118.57384904446 12.0789610642188
+118.10874202282 13.3412239559609
+118.017335893148 14.0524925911289
+116.786745287895 15.5459106705818
+115.5851185542 16.9536544973753
+114.2660525985 18.5386315285624
+113.2683102147 19.5127703216215
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|7250|TR|gpml:SubductionZone|115|75|"Woyla and Proto Andaman Sea Subduction"||GPlates-3270ffba-a423-4dc4-ad8f-bee61b572297|0||0|0|0|0
+89.8827705699858 21.1058384281587
+91.2378910558093 20.7365507943515
+94.4740445488842 17.8409918099125
+97.9739247160972 14.9720209316342
+98.5940611948301 14.3403055201838
+99.741104238306 13.7907394002505
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|673|TR|gpml:SubductionZone|115|75.1|"Woyla and Proto Andaman Sea Subduction"||GPlates-138cd9c1-a716-416d-b204-8d54fab1e979|0||0|0|0|0
+99.741104238306 13.7907394002505
+101.637373220087 13.3666200461853
+104.832822870463 12.4656685065292
+106.708131664625 11.6547397607764
+110.054536241094 10.4193675754648
+111.842243311779 8.76439037101724
+112.719493691392 7.56837324837175
+113.671971969745 6.64756013509849
+>
+113.671971969745 6.64756013509849
+114.792595650019 5.55747239797076
+117.619643497313 3.16551658459404
+119.776189880576 2.13149573461692
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|869|TR|gpml:SubductionZone|130|85.1|"Northern cont. of Eastern Gondwanaland Active Margin"||GPlates-142791f4-8507-4cfc-af9f-322953081c2a|0||0|0|0|0
+145.061377495204 -27.850945993237
+145.503778389421 -28.5840086654811
+146.597815724504 -30.5657839960798
+147.548301811807 -32.8702815579354
+147.656744060899 -33.2060401585352
+>
+147.656744060899 -33.2060401585352
+148.214089359082 -34.8900701766548
+148.100538421219 -36.8205812178309
+147.992328966204 -37.6624531643319
+147.811450661933 -37.8884334842632
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|879|TR|gpml:SubductionZone|115|99.1|"Chatham Rise subduction KM"||GPlates-5a91e0bc-8747-44b4-b60d-eaa6a2e82ec9|0||0|0|0|0
+168.907790981677 -62.9923505271576
+171.569060031762 -64.0284171439723
+175.7459336599 -65.1358962705933
+176.870645755856 -65.1156359074947
+178.227250597938 -65.2690157562926
+-179.54570892762 -65.662723529398
+-176.985679443163 -66.2607287102597
+-170.296356005007 -66.9926060093099
+-165.451876644837 -67.2796889290235
+-161.129441602525 -67.6150927306179
+-154.804325563809 -67.9302089312204
+-153.528582474553 -68.0020430291802
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|2007|TR|gpml:SubductionZone|135|85.1|TBD||GPlates-97abe3ab-9d32-444d-a263-5315e906c3bf|0||0|0|0|0
+-73.3336229117594 6.68881964984283
+-70.8790613717999 5.9487951399685
+-68.2726565705893 5.00309795050476
+-67.9224377318827 4.81931055691388
+>
+-67.9224377318827 4.81931055691388
+-65.5428824103895 3.56371971492686
+-62.3919745138025 1.44679373236816
+-61.6197358034903 0.73691190958194
+>
+-61.6197358034903 0.73691190958194
+-59.2830460414777 -1.41186033031163
+-57.108530944707 -4.79226911159339
+-56.6754101519177 -5.93771781834887
+-56.1892112751561 -6.97339432252315
+-56.1641858601082 -7.06244789572683
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|2000|TR|gpml:SubductionZone|135|0|"Central American subduction from 135 Ma"||GPlates-db008443-5bff-4ed9-86bb-ad822823affc|0||0|0|0|0
+-68.8356680036321 15.5804112238844
+-68.7475809540137 14.3090889276603
+-68.5763380610787 11.7968365297206
+-68.2154038444656 8.26779742015006
+-67.8091347534046 5.78935238762674
+-67.9224377318827 4.81931055691388
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|787|TR|gpml:SubductionZone|190|105.1|"Woyla Subduction Zone"||GPlates-16f78258-edf5-4f0e-b9ac-cd80b02d520d|0||0|0|0|0
+86.6189370198812 8.91390529751317
+91.8270179138601 7.12166736695057
+93.3766888829886 6.50390626867059
+97.2058315571563 4.19683712062742
+101.709954988724 2.18077249183802
+107.96548764212 0.951259905457399
+112.665112859867 0.202914270001565
+116.514957461399 -1.75202681066002
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|678|TR|gpml:SubductionZone|160|85.1|"Philippine Arc"||GPlates-cf687230-2c5b-4305-ae6b-0bef7aae92b4|0||0|0|0|0
+114.170122966081 -4.66998234782046
+114.385224357631 -4.72853114755786
+>
+114.385224357631 -4.72853114755786
+116.493247244571 -5.29814285350146
+118.743046191027 -5.61910516396685
+123.82984458716 -6.22477400221385
+130.431474064677 -7.30532793717864
+141.543858911414 -10.8158724764424
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|780|TR|gpml:SubductionZone|145|85.1|"Philippine Arc"||GPlates-e52ea327-a58a-40e0-a368-e29390eec23c|0||0|0|0|0
+145.061377495204 -27.850945993237
+145.119460699009 -27.1770928635644
+145.284712801161 -24.3686514157013
+144.42584184574 -21.8092995770392
+>
+144.42584184574 -21.8092995770392
+144.353319819061 -21.5885584525094
+143.217982485466 -17.8267783913106
+>
+143.217982485466 -17.8267783913106
+142.941241808249 -16.8827396139314
+142.227436016026 -12.255390479927
+141.543858911414 -10.8158724764424
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|614|TR|gpml:SubductionZone|119|104.1|"Barito Sea Subduction Zone"||GPlates-13e8bc19-36c0-4563-8948-889025f21155|0||0|0|0|0
+114.170122966081 -4.66998234782046
+116.239537027369 -2.07563688042225
+116.514957461399 -1.75202681066002
+>
+116.514957461399 -1.75202681066002
+118.02119860226 0.019711209416183
+119.776189880576 2.13149573461692
+>
+119.776189880576 2.13149573461692
+120.038298683684 2.44641130331431
+121.341114030949 6.04136900705522
+121.449417394513 8.63745288130109
+121.493929782525 9.95264813336821
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|2065|TR|gpml:SubductionZone|119|100.1|"Northern QT subduction back-arc closure"||GPlates-0547d8e1-ac39-4029-8d7d-8dda7de88c22|0||0|0|0|0
+-77.4248859965888 1.10578365453439
+-75.7905133727233 0.002032145606039
+-74.2748249387573 -1.1785904884499
+-73.0230824545313 -2.19458651480597
+-72.2008855963754 -3.05787475333238
+-71.7435437986746 -3.76832619063201
+-71.2197173751731 -4.64341935751256
+-70.6853520691779 -5.742087129325
+-70.6138447557054 -5.91631255947385
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|2033|TR|gpml:SubductionZone|119|100.1|"Subduction QT back-arc closure"||GPlates-ce3d3817-3dbf-4f9d-af5a-748b35f6556c|0||0|0|0|0
+-70.6138447557054 -5.91631255947385
+-69.3559811668485 -7.99709115740218
+-68.0826458398842 -11.0105616834714
+-67.2673179403298 -14.3644157578283
+-66.9474008722614 -16.8737305981359
+-66.5283898095641 -19.5272979906363
+-65.8247778497435 -20.4604453347331
+-64.4984557952308 -21.1876643009114
+-63.2338748615196 -21.6238637181505
+-62.6869357585867 -21.7966066205444
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|2067|TR|gpml:SubductionZone|119|109.1|"Southward Subduction of Farallon beneath QT back-arc"||GPlates-ebec3025-2512-4e05-9746-4584beeb21f2|0||0|0|0|0
+-77.4248859965888 1.10578365453439
+-76.7308805998106 2.35865344058661
+-75.5786182483914 4.10304640679152
+-74.6023868258298 5.50802522885853
+-73.3863827390057 6.65320251836307
+-73.3336229117594 6.68881964984283
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|2063|TR|gpml:SubductionZone|119|100.1|"QT back-arc southern subduction"||GPlates-53f613c4-d538-4d74-ac03-11ba1145f432|0||0|0|0|0
+-62.6919825499733 -21.7843416272333
+-62.6869357585867 -21.7966066205444
+>
+-62.6869357585867 -21.7966066205444
+-62.4611169670317 -22.343089676002
+-61.8670320611782 -23.2440227201591
+-61.0283775206137 -24.7190880824335
+-59.9957512176209 -26.3063505646199
+-59.0305259507338 -27.8485134578828
+>
+-59.0305259507338 -27.8485134578828
+-58.6976553744386 -28.3689569184685
+-57.3943332844267 -29.8126181944757
+-57.1059014071346 -29.9856662109364
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|560|TR|gpml:SubductionZone|125|85|"Western Tethys intra-oceanic subduction"||GPlates-bfe786ed-894a-4f6e-a2f3-a925c7947d8b|0||0|0|0|0
+61.3948104049636 8.80428487091495
+58.9098276670426 9.19014513469197
+57.8806820166356 9.5226146671747
+56.782105619493 9.71974963108262
+55.2147641714385 10.1491015848481
+53.6232186435226 10.756372540706
+52.4315859764137 11.2845608901441
+50.8597117462954 12.413074080967
+49.7858755432271 13.6201497340321
+48.4043845189691 15.1960232432764
+48.0796628826856 15.4852308106581
+46.9263485837011 15.9305488029964
+45.5704281666399 16.4383312080444
+43.5566608292569 17.0764653792313
+41.9824709660908 17.4274478064498
+40.4758815591715 17.7283243848031
+39.0465272958106 18.313219378094
+37.3600677861308 19.0109184709507
+36.42841711423 19.5628707049573
+36.0502339341581 19.7989903788055
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|505|TR|gpml:SubductionZone|110|90.1|"Western Tethys SZ"||GPlates-9256aea4-a747-4194-8449-34d2a0e7370d|0||0|0|0|0
+63.8403112197595 14.1635404829665
+62.1210511083399 14.4570070784392
+59.9858094003245 15.1788003304552
+58.5519989093389 15.7563004159897
+56.3075509654345 16.8459535557925
+54.2999514516447 18.1502608480015
+53.2198599602311 19.0772366946238
+51.8532324916461 20.6965551162142
+51.5281548877446 20.9955733882154
+50.3521846046518 21.4745975386121
+48.9662939965692 22.0191224778
+46.8994218951095 22.7060253480212
+45.2762930127156 23.0902410914607
+43.7196718232862 23.4188288727262
+42.2458080676733 24.0262419060597
+40.5021888755259 24.7458269690812
+39.5386453425327 25.3076731208416
+38.8060024030242 25.7544469857639
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|101|TR|gpml:SubductionZone|140|100.0101|"Western NAM subduction w/hole for Siletzia"||GPlates-25e4c8c3-9020-4d63-a450-78c3947db8aa|0||0|0|0|0
+-68.8356680036321 15.5804112238844
+-69.0801812631186 15.9433929679105
+-70.2710786673078 18.1852050614975
+-71.3664344835056 20.5327139126478
+-72.0806618178476 22.1734344190717
+-72.5184144018524 24.358465768896
+-72.829522743342 25.4428704898976
+-73.3152612889798 26.92616595884
+-73.6134708159693 28.0290062424768
+-74.104500510304 29.8254667741322
+-74.3755209911888 31.106182368823
+-74.3486799340062 32.7559706858927
+-74.6336922019408 34.3398078090336
+-74.745677714585 35.6930560598292
+-75.2377173355001 37.1658152556299
+-75.2710532498575 39.0725757747959
+-75.2029319339209 41.4040382632691
+-74.5994445244924 42.530091184973
+-72.52952984604 42.7376220631128
+-70.8271442047676 42.7718860010941
+-69.1381065989369 42.9233789890191
+-67.0783985829935 43.3262987923102
+-66.1421152546481 44.4168509394406
+-67.136383966563 45.6795853999313
+-69.2831575714316 48.0629055496972
+-71.169326983601 49.8800068993112
+-73.0783058550284 51.7242756981728
+-74.1320976818651 53.1395802035197
+-74.1153002519755 53.9531972650087
+-74.3089446078265 54.8809044357048
+-74.5475751581789 55.8880100173559
+-74.5549084413311 56.3138320363083
+-74.5878165608677 57.2933418635591
+-74.2479753472742 58.36638084243
+-73.6925621679104 59.1793335666234
+-73.1524866688017 60.1472340325978
+-73.0521293122844 60.5337702027138
+-72.5114434443622 60.9289002301328
+-72.4068173952072 61.312284192449
+-72.1468765525324 61.645835541026
+-72.0062330025503 62.1246483528215
+-72.0692534358113 62.6158384019115
+-72.0873881857324 62.8322586886598
+-71.9688308051987 63.2139177085587
+-71.9814225528148 63.5860705207501
+-71.8577349888576 63.9683224506205
+-71.6144082440515 64.4211515922735
+-71.3052825552104 64.9095192119485
+-70.7542449638163 65.3815159052064
+-70.3699081344111 65.7470318018736
+-69.835898344397 66.1708183461064
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|301260|TR|gpml:SubductionZone|150|66.6|"East Asia subduction 250-150 Ma"||GPlates-3bbc825b-8831-4b6f-8307-c7b0cba704c2|0||0|0|0|0
+137.978709299555 79.1911168743108
+139.00217076535 76.4473642816285
+138.818005550466 74.4773983581585
+138.438490994491 71.3368449505575
+138.127582577042 68.8902222592383
+137.36186250342 66.6329967617198
+136.692728775215 65.4950999817972
+>
+136.692728775215 65.4950999817972
+136.148655632696 64.4881258759936
+135.28005233704 62.8021650041731
+134.518580492551 61.3298845138912
+133.682890399982 59.7072308076711
+132.745517228819 58.2807803798174
+131.809775448189 56.5499447799656
+131.056335118107 55.1342443265225
+130.442802548543 53.9673666209902
+129.789323570561 52.6836660817036
+128.986395616033 51.1084744893217
+128.046981617395 49.2915496100393
+127.013420806277 47.6167129955617
+125.995486978066 45.6709302359079
+125.456257476463 44.8119621494584
+>
+125.456257476463 44.8119621494584
+124.839517980929 43.7939340317764
+123.661354454662 41.5935119116234
+122.506356712909 39.1817356123207
+121.326552794016 36.6828378508812
+120.142181681181 33.8198475197589
+118.761293242895 30.7489084004586
+117.136863766059 26.7122377426732
+114.92987720386 22.498316017197
+113.2683102147 19.5127703216215
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|301|TR|gpml:SubductionZone|131.8|83.1|"Liguro-Piemont Subduction Zone"||GPlates-227671b5-e48e-4631-8892-0a01ec87b546|301||0|0|0|130
+11.2885404252786 26.6768637455816
+11.9574134694632 26.4652680445733
+13.3008606916597 26.2440278170915
+14.4817321382691 26.1279126852908
+15.3732441408634 26.1013497477566
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|307|TR|gpml:SubductionZone|131.8|74.1|"Liguro-Piemont - EoAlpine Subduction Zone"||GPlates-4cd994dc-e8e6-4a6a-8644-cef5bebccfaf|301||0|0|0|130
+-0.689857850547477 15.8913729606903
+3.7071634167677 17.8573849428885
+3.99124113410149 18.0046216857184
+>
+3.99124113410149 18.0046216857184
+6.97647430361 19.5115044618925
+9.77994220635599 21.2698233517191
+11.0913948866043 21.8763911505524
+12.5494500660544 22.3108629888573
+13.4069779206516 22.2946067933624
+>
+# @D0|110|Australia_North_Zealandia_Mesh_Topologies_2019_v2.gpml|Andes_Mesh_Topologies_2019_v2.gpml|Global_Mesozoic-Cenozoic_PlateBoundaries_2019_v2.gpml|North_America_Mesh_Topologies_2019_v2.gpml|North_China_Mesh_Topologies_2019_v2.gpml|Western_Tethys_Tectonic_Boundary_Topologies_2019_v2.gpml|Global_250-0Ma_Rotations_2019_v2.rot|Alps_Mesh_Rotations_2019_v2.rot|Andes_Flat_Slabs_Rotations_2019_v2.rot|Andes_Rotations_2019_v2.rot|Australia_Antarctica_Mesh_Rotations_2019_v2.rot|Australia_North_Zealandia_Rotations_2019_v2.rot|Eurasia_Arabia_Mesh_Rotations_2019_v2.rot|North_America_Flat_Slabs_Rotations_2019_v2.rot|North_America_Mesh_Rotations_2019_v2.rot|North_China_Mesh_Rotations_2019_v2.rot|South_Atlantic_Rotations_2019_v2.rot|Southeast_Asia_Rotations_2019_v2.rot|301|TR|gpml:SubductionZone|131.8|67.7|"Vardar Subduction Zone"||GPlates-3eb61482-41a4-4d61-84be-7f1215a0828b|301||0|0|0|129
+20.5804971869751 23.151415692976
+20.619152178179 23.1474951769979
+21.4950073745257 23.0560752281933
+22.1378789392939 22.9858199106935
+22.9970918559906 22.8877547937941
+23.6169225046138 22.8988783566927
+24.3425684974182 22.9088450630556
+25.5170093084094 22.9179911394905
+26.2107206483767 23.1036794757095
+26.9532623730765 23.2985211649352
+27.9211601296021 23.5464081693738
+28.7669868316403 23.7826545674481
+29.6028604915801 24.0107701870051
+30.2631266813167 24.187198534379
+30.8927977164297 24.3523563806608
+31.8958143105891 24.609197447612
+32.7800357171702 24.8292567514057
+33.6887941847396 25.0492108516839
+34.6566478790786 25.2765454776715
+35.1882173911188 25.3983664466941
+35.857928966911 25.5487816690497
+36.3632353311338 25.6600115279107
+38.7353617930846 25.6072499132127
