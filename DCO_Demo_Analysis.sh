@@ -23,6 +23,7 @@
 
 # Matthews, K.J., Maloney, K.T., Zahirovic, S., Williams, S.E., Seton, M. and Müller, R.D., (2016) Global plate
 # boundary evolution and kinematics since the late Paleozoic. Global and Planetary Change
+# With corrected Pacific plate motions
 
 
 #################### Make all sub shell scripts executable ####################
@@ -46,7 +47,9 @@ coastlines="PlateMotionModel_and_GeometryFiles/Matthews++_2016_Coastlines.gpmlz"
 # Active carbonate platform interactions
 carbonate="PlateMotionModel_and_GeometryFiles/DCO_Active_Carbonate_Platform-v3.gpml"
 
-continents="PlateMotionModel_and_GeometryFiles/Global_EarthByte_GeeK07_COB_Terranes_Matthews_etal.gpml"
+continents="PlateMotionModel_and_GeometryFiles/Global_EarthByte_GeeK07_COB_Terranes_ContinentsOnly_Matthews_etal.gpml"
+
+profile_length=254 # Cross-profile distance into overriding plate in km
 
 fromage=410
 
@@ -56,8 +59,7 @@ prefix="DCO_Subduction_Analysis"
 
 # Execute analysis
 DCO_Subduction_Analysis/DCO_subductionzone_analysis.sh -r "$rotfiles" -c "$carbonate" -t "$fromage-$toage" -a "$continents" \
--m "$model_features" -n "$prefix" -s "$coastlines"
-
+ -m "$model_features" -n "$prefix" -s "$coastlines" -p "$profile_length"
 
 
 ############################ Run DCO Oceanic Crust Analysis ###############################

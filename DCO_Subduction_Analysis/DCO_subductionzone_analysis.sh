@@ -7,7 +7,7 @@
 #              (Andean-style) subduction to oceanic subduction zones.
 # AUTHORS: Sebastiano Doss, Jodie Pall, Sabin Zahirovic
 # START DATE: 29th of February 2016
-# LAST EDIT: 2nd of September 2020
+# LAST EDIT: 26th of October 2021
 
 # Instructions
 
@@ -37,6 +37,7 @@
 #   -c    files depicting carbonate platform activity or accumulation (gpml or shp)
 #   -a    files depicting cotinental outlines  (gpml or shp)
 #   -s    files depicting present-day coastlines outlines  (gpml or shp)
+#   -p    Cross-profile length (km)
 
 # If there are multiple feature files or rotation files following the argument
 # flag, separate the files with a space and enclose them with a double quotes
@@ -84,9 +85,10 @@ local to_age=0
 local from_age=0
 local outfilename_prefix="Subduction_Zones_Analysis_" # Default name unless specified by user
 local coastlines=""
+local x_prof_length=""
 
 # Parse Input Arguments
-while getopts "r:t:m:n:c:a:s:" opt; do
+while getopts "r:t:m:n:c:a:s:p:" opt; do
 case $opt in
 r)
 rotfile="$OPTARG"
@@ -127,6 +129,13 @@ s)
 coastlines="$OPTARG"
 ;;
 
+p)
+	# Need to double check that supplied x profile length is integer, then double, and append "k" for km length
+x_prof_length=$( echo $OPTARG | awk '{print int($1)*2"k"}' )
+# echo $x_prof_length
+# exit
+;;
+
 \?)
 echo >&2 "Invalid option: -$OPTARG"
 exit 1
@@ -148,7 +157,7 @@ validate_arguments "$rotfile" "$topologies" "$to_age" "$from_age" "$carbonate" "
 prompt_inputs
 
 # Excute analysis function
-run_analysis "$rotfile" "$topologies" "$to_age" "$from_age" "$carbonate" "$continental_polygons" "$outfilename_prefix" "$coastlines"
+run_analysis "$rotfile" "$topologies" "$to_age" "$from_age" "$carbonate" "$continental_polygons" "$outfilename_prefix" "$coastlines" "$x_prof_length"
 
 echo >&2 "Analysis Complete"
 
@@ -286,6 +295,11 @@ local from_age=$4
 local carbonate=$5
 local continental_polygons=$6
 local outfilename_prefix=$7
+x_prof_length=$9
+
+# echo $x_prof_length
+
+# exit
 
 # Result variables
 local sz_total_length_km=0
@@ -480,9 +494,8 @@ local outfilename_prefix=$4
 
 # Define sampling distance, intervals and lengths of cross-profiles.
 local prof_spacing="10" # Cross profile are created at 10 km spacing from each other
-local prof_interval="5.5875" # 5.5875 km spacing interval along the cross profile, with a 447 km whisker length,
-#there are a total of 10 units along the cross profile (447/5.5875=80)
-local prof_length="894k" # Will search 447 km from the subduction zone for a carbonate platform feature. (894/2=447)
+local prof_interval="5" # 5 km spacing interval along the cross profile
+local prof_length=${x_prof_length} # Will search x km from the subduction zone for a carbonate platform feature.
 
 # Subduction boundaries have either a left- or right-polarity depending on the original direction of digitisation.
 local szLlayer=${outfilename_prefix}subduction_boundaries_sL_${age}.00Ma.gmt
@@ -527,11 +540,13 @@ local age=$2
 local continental_polygons=$3
 local outfilename_prefix=$4
 
+
 # Define sampling distance, intervals and lengths of cross-profiles.
-local prof_spacing="10" # Cross profile are created at 10km spacing from each other
-local prof_interval="11.175" # 11.175 km spacing interval along the cross profile, with a 447km whisker length,
-#there are a total of 10 units along the cross profile (447/11.175=40)
-local prof_length="894k" # Will search 447 km from the subduction zone for cotinent feature. (894/2=447)
+local prof_spacing="10" # Cross profile are created at 10 km spacing from each other
+local prof_interval="10" # 10 km spacing interval along the cross profile
+local prof_length=${x_prof_length} # Will search x km from the subduction zone for continent feature. 
+
+
 
 # Close continental polygons
 local closed_continental_polygons="continental_polygons_closed_${age}.gmt"
@@ -566,6 +581,8 @@ rm reconstructed_COB_${age}.0Ma.xy ${closed_continental_polygons}
 echo ${sz_length_con_arc}
 
 }
+
+
 
 calculate_sz_percentage_continentArc(){
 
